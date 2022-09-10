@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -7,6 +7,21 @@ function App() {
   const handleChange = (value) => {
     setSelectedRegion(value);
   };
+
+  // fetch countries data
+  useEffect(() => {
+    const getCountries = async () => {
+      if (selectedRegion) {
+        await fetch(
+          `https://restcountries.com/v3.1/region/${selectedRegion}`
+        ).then((res) => {
+          return res.json();
+        });
+      }
+    };
+
+    getCountries();
+  }, [selectedRegion]);
 
   return (
     <div className="App">
