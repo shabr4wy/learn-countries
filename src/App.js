@@ -41,6 +41,21 @@ function App() {
         <option value="europe">Europe</option>
         <option value="oceania">Oceania</option>
       </select>
+
+      <ul>
+        {countriesArray &&
+          countriesArray.map((country) => (
+            <li key={country.name.common}>
+              {country.name.common}
+              <img
+                src={country.flags.svg}
+                height="60"
+                width="100"
+                loading="lazy"
+              ></img>
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }
