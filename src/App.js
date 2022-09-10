@@ -8,15 +8,20 @@ function App() {
     setSelectedRegion(value);
   };
 
+  // store countries data
+  const [countriesArray, setCountriesArray] = useState("");
+
   // fetch countries data
   useEffect(() => {
     const getCountries = async () => {
       if (selectedRegion) {
-        await fetch(
-          `https://restcountries.com/v3.1/region/${selectedRegion}`
-        ).then((res) => {
-          return res.json();
-        });
+        await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`)
+          .then((res) => {
+            return res.json();
+          })
+          .then((regionCountries) => {
+            setCountriesArray([...regionCountries]);
+          });
       }
     };
 
