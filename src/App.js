@@ -1,9 +1,19 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [selectedRegion, setSelectedRegion] = useState("");
+
+  const handleChange = (value) => {
+    setSelectedRegion(value);
+  };
+
   return (
     <div className="App">
-      <select>
+      <select
+        value={selectedRegion ? selectedRegion : "selectRegion"}
+        onChange={(e) => handleChange(e.target.value)}
+      >
         <option value="selectRegion">select Region</option>
         <option value="africa">Africa</option>
         <option value="americas">Americas</option>
