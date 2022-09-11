@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { CountriesList } from "./CountriesList";
+import { RegionMenu } from "./RegionMenu";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -31,21 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* region menu */}
-      <section className="regionMenu">
-        <select
-          value={selectedRegion ? selectedRegion : "selectRegion"}
-          onChange={(e) => handleChange(e.target.value)}
-        >
-          <option value="selectRegion">select Region</option>
-          <option value="africa">Africa</option>
-          <option value="americas">Americas</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
-        </select>
-      </section>
-
+      <RegionMenu selectedRegion={selectedRegion} handleChange={handleChange} />
       <CountriesList countriesArray={countriesArray} />
     </div>
   );
