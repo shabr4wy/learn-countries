@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { CountriesList } from "./CountriesList";
 import { RegionMenu } from "./RegionMenu";
+import { SearchCountry } from "./SearchCountry";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <SearchCountry countriesArray={countriesArray} />
       <RegionMenu selectedRegion={selectedRegion} handleChange={handleChange} />
       <CountriesList countriesArray={countriesArray} />
     </div>
