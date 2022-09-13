@@ -1,16 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export function SearchCountry({ countriesArray }) {
+export function SearchCountry({ setCountriesArray }) {
   const [searchedCountry, setSearchedCountry] = useState("");
 
-  function handleChange(value) {
-    setSearchedCountry(value);
-  }
+  const handleChange = (event) => {
+    setSearchedCountry(event.target.value);
+  };
+
+  useEffect(() => {
+    if (searchedCountry) {
+      async function getCountry() {
+        await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`)
+          .then((res) => {
+            return res.json();
+          })
+          .then((searchResult) => {
+            setCountriesArray([...searchResult]);
+          });
+      }
+      getCountry();
+    } else {
+      setCountriesArray("");
+    }
+  }, [searchedCountry]);
+
   return (
     <section className="search">
       <input
         value={searchedCountry && searchedCountry}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={handleChange}
         className="search__input"
         placeholder="search for a country..."
       ></input>

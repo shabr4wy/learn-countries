@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchCountry countriesArray={countriesArray} />
+      <SearchCountry setCountriesArray={setCountriesArray} />
       <RegionMenu selectedRegion={selectedRegion} handleChange={handleChange} />
       <CountriesList countriesArray={countriesArray} />
     </div>
