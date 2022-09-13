@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { CountriesList } from "./CountriesList";
 import { RegionMenu } from "./RegionMenu";
 import { SearchCountry } from "./SearchCountry";
+import { Country } from "./Country";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -24,6 +26,7 @@ function App() {
           })
           .then((regionCountries) => {
             setCountriesArray([...regionCountries]);
+            console.log(regionCountries);
           });
       }
     };
@@ -33,9 +36,23 @@ function App() {
 
   return (
     <div className="App">
-      <SearchCountry setCountriesArray={setCountriesArray} />
-      <RegionMenu selectedRegion={selectedRegion} handleChange={handleChange} />
-      <CountriesList countriesArray={countriesArray} />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <div>
+              <SearchCountry setCountriesArray={setCountriesArray} />
+              <RegionMenu
+                selectedRegion={selectedRegion}
+                handleChange={handleChange}
+              />
+              <CountriesList countriesArray={countriesArray} />
+            </div>
+          }
+        />
+        <Route path=":countryName" element={<Country />} />
+      </Routes>
     </div>
   );
 }
