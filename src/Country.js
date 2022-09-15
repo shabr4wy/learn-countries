@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 export function Country() {
   let params = useParams();
   const [countryData, setCountryData] = useState("");
+  console.log(countryData);
 
   useEffect(() => {
     async function getCountry() {
@@ -22,6 +23,11 @@ export function Country() {
   function getNativeName() {
     let nativeNames = { ...countryData.name.nativeName };
     return Object.values(nativeNames)[0].common;
+  }
+
+  function getCurrency() {
+    let currencies = { ...countryData.currencies };
+    return Object.values(currencies)[0].name;
   }
 
   return (
@@ -65,6 +71,7 @@ export function Country() {
 
           <ul className="countryPage__life">
             <li>Car Side: {countryData.car.side}</li>
+            <li>Currency: {getCurrency()}</li>
           </ul>
         </div>
       )}
