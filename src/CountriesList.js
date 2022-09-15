@@ -9,7 +9,7 @@ export function CountriesList({ countriesArray }) {
           countriesArray.map((country) => (
             <li key={country.name.common} className="countryItem">
               <Link to={`/${country.name.common}`}>
-                <div className="countryFlag">
+                <div className="countriesList__countryFlag">
                   <img
                     src={country.flags.svg}
                     alt={country.name.common + " flag"}
@@ -19,11 +19,11 @@ export function CountriesList({ countriesArray }) {
                   ></img>
                 </div>
 
-                <ul className="countryInfo">
-                  <li className="countryName">{country.name.common}</li>
-                  <li className="countryCapital">Capital: {country.capital}</li>
-                  <li className="countryRegion">Region: {country.region}</li>
-                  <li className="countryPopulation">
+                <ul className="countriesList__countryGeogrpahy">
+                  <li>{country.name.common}</li>
+                  <li>Capital: {country.capital}</li>
+                  <li>Region: {country.region}</li>
+                  <li>
                     Population: {country.population.toLocaleString("en-US")}
                   </li>
                 </ul>
