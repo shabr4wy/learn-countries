@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
+import { CountryLife } from "./CountryLife";
 
 export function Country() {
   let params = useParams();
@@ -20,16 +21,6 @@ export function Country() {
     }
     getCountry();
   }, [params]);
-
-  function getCurrency() {
-    let currencies = { ...countryData.currencies };
-    return Object.values(currencies)[0].name;
-  }
-
-  function getLanguages() {
-    let languages = { ...countryData.languages };
-    return Object.values(languages).join(", ");
-  }
 
   return (
     <div className="countryPage">
@@ -53,13 +44,7 @@ export function Country() {
           </div>
 
           <CountryGeogeapghy countryData={countryData} />
-
-          <ul className="countryPage__life">
-            <li>Languages: {getLanguages()}</li>
-            <li>Currency: {getCurrency()}</li>
-            <li>Car Side: {countryData.car.side}</li>
-          </ul>
-
+          <CountryLife countryData={countryData} />
           <BorderCountries countryData={countryData} />
         </div>
       )}
