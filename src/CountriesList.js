@@ -19,14 +19,14 @@ export function CountriesList({ countriesArray }) {
                   ></img>
                 </div>
 
-                <div className="countryInfo">
-                  <p className="countryName">{country.name.common}</p>
-                  <p className="countryCapital">Capital: {country.capital}</p>
-                  <p className="countryRegion">Region: {country.region}</p>
-                  <p className="countryPopulation">
+                <ul className="countryInfo">
+                  <li className="countryName">{country.name.common}</li>
+                  <li className="countryCapital">Capital: {country.capital}</li>
+                  <li className="countryRegion">Region: {country.region}</li>
+                  <li className="countryPopulation">
                     Population: {country.population.toLocaleString("en-US")}
-                  </p>
-                </div>
+                  </li>
+                </ul>
               </Link>
             </li>
           ))}
