@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export function BorderCountries({ countryData }) {
   const [borderCountries, setBorderCountries] = useState("");
@@ -23,7 +24,12 @@ export function BorderCountries({ countryData }) {
     <ul className="countryPage_borders">
       {borderCountries &&
         borderCountries.map((borderCountry) => (
-          <li key={borderCountry.name.common}>{borderCountry.name.common}</li>
+          <Link
+            key={borderCountry.name.common}
+            to={`/${borderCountry.name.common}`}
+          >
+            <li>{borderCountry.name.common}</li>
+          </Link>
         ))}
     </ul>
   );
