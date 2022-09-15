@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { BorderCountries } from "./BorderCountries";
 
 export function Country() {
   let params = useParams();
   const [countryData, setCountryData] = useState("");
-  const [borderCountries, setBorderCountries] = useState("");
 
   useEffect(() => {
     async function getCountry() {
@@ -19,22 +19,6 @@ export function Country() {
     }
     getCountry();
   }, [params]);
-
-  useEffect(() => {
-    async function getBorders() {
-      countryData &&
-        (await fetch(
-          `https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join()}`
-        )
-          .then((res) => {
-            return res.json();
-          })
-          .then((borderCountries) => {
-            setBorderCountries([...borderCountries]);
-          }));
-    }
-    getBorders();
-  }, [countryData]);
 
   function getNativeName() {
     let nativeNames = { ...countryData.name.nativeName };
@@ -96,14 +80,7 @@ export function Country() {
             <li>Car Side: {countryData.car.side}</li>
           </ul>
 
-          <ul className="countryPage_borders">
-            {borderCountries &&
-              borderCountries.map((borderCountry) => (
-                <li key={borderCountry.name.common}>
-                  {borderCountry.name.common}
-                </li>
-              ))}
-          </ul>
+          <BorderCountries countryData={countryData} />
         </div>
       )}
     </div>
