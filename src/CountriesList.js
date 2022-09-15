@@ -12,6 +12,7 @@ export function CountriesList({ countriesArray }) {
                 <div className="countryFlag">
                   <img
                     src={country.flags.svg}
+                    alt={country.name.common + " flag"}
                     height="60"
                     width="100"
                     loading="lazy"
