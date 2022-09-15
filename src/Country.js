@@ -19,6 +19,11 @@ export function Country() {
     getCountry();
   }, [params]);
 
+  function getNativeName() {
+    let nativeNames = { ...countryData.name.nativeName };
+    return Object.values(nativeNames)[0].common;
+  }
+
   return (
     <div className="countryPage">
       <Link className="countryPage__backbtn" to="/">
@@ -41,6 +46,9 @@ export function Country() {
           </div>
 
           <ul className="countryPage__geograpghy">
+            <li className="countryPage__nativeName">
+              Native Name: {getNativeName()}
+            </li>
             <li className="countryPage__capital">
               Capital: {countryData.capital}
             </li>
