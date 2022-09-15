@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { BorderCountries } from "./BorderCountries";
+import { CountryGeogeapghy } from "./CountryGeograpghy";
 
 export function Country() {
   let params = useParams();
@@ -19,11 +20,6 @@ export function Country() {
     }
     getCountry();
   }, [params]);
-
-  function getNativeName() {
-    let nativeNames = { ...countryData.name.nativeName };
-    return Object.values(nativeNames)[0].common;
-  }
 
   function getCurrency() {
     let currencies = { ...countryData.currencies };
@@ -56,23 +52,7 @@ export function Country() {
             <p className="countryPage__name">{countryData.name.common}</p>
           </div>
 
-          <ul className="countryPage__geograpghy">
-            <li className="countryPage__nativeName">
-              Native Name: {getNativeName()}
-            </li>
-            <li className="countryPage__capital">
-              Capital: {countryData.capital}
-            </li>
-            <li className="countryPage__region">
-              Region: {countryData.region}
-            </li>
-            <li className="countryPage__subRegion">
-              Sub Region: {countryData.subregion}
-            </li>
-            <li className="countryPage__population">
-              Population: {countryData.population.toLocaleString("en-US")}
-            </li>
-          </ul>
+          <CountryGeogeapghy countryData={countryData} />
 
           <ul className="countryPage__life">
             <li>Languages: {getLanguages()}</li>
