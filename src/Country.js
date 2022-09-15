@@ -20,8 +20,46 @@ export function Country() {
   }, [params]);
 
   return (
-    <div>
-      <Link to="/">back</Link>
+    <div className="countryPage">
+      <Link className="countryPage__backbtn" to="/">
+        back
+      </Link>
+      {countryData && (
+        <div className="countryPage__grid">
+          <div className="countryPage__flag">
+            <img
+              src={countryData.flags.svg}
+              alt={countryData.name.common + " flag"}
+              height="60"
+              width="100"
+              loading="lazy"
+            ></img>
+          </div>
+
+          <div>
+            <p className="countryPage__name">{countryData.name.common}</p>
+          </div>
+
+          <ul className="countryPage__geograpghy">
+            <li className="countryPage__capital">
+              Capital: {countryData.capital}
+            </li>
+            <li className="countryPage__region">
+              Region: {countryData.region}
+            </li>
+            <li className="countryPage__subRegion">
+              Sub Region: {countryData.subregion}
+            </li>
+            <li className="countryPage__population">
+              Population: {countryData.population.toLocaleString("en-US")}
+            </li>
+          </ul>
+
+          <ul className="countryPage__life">
+            <li>Car Side: {countryData.car.side}</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
