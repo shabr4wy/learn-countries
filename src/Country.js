@@ -30,6 +30,11 @@ export function Country() {
     return Object.values(currencies)[0].name;
   }
 
+  function getLanguages() {
+    let languages = { ...countryData.languages };
+    return Object.values(languages).join(", ");
+  }
+
   return (
     <div className="countryPage">
       <Link className="countryPage__backbtn" to="/">
@@ -70,8 +75,9 @@ export function Country() {
           </ul>
 
           <ul className="countryPage__life">
-            <li>Car Side: {countryData.car.side}</li>
+            <li>Languages: {getLanguages()}</li>
             <li>Currency: {getCurrency()}</li>
+            <li>Car Side: {countryData.car.side}</li>
           </ul>
         </div>
       )}
