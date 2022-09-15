@@ -95,6 +95,15 @@ export function Country() {
             <li>Currency: {getCurrency()}</li>
             <li>Car Side: {countryData.car.side}</li>
           </ul>
+
+          <ul className="countryPage_borders">
+            {borderCountries &&
+              borderCountries.map((borderCountry) => (
+                <li key={borderCountry.name.common}>
+                  {borderCountry.name.common}
+                </li>
+              ))}
+          </ul>
         </div>
       )}
     </div>
