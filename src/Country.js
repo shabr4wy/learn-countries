@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export function Country() {
   let params = useParams();
   const [countryData, setCountryData] = useState("");
-  console.log(countryData);
+  const [borderCountries, setBorderCountries] = useState("");
 
   useEffect(() => {
     async function getCountry() {
@@ -19,6 +19,22 @@ export function Country() {
     }
     getCountry();
   }, [params]);
+
+  useEffect(() => {
+    async function getBorders() {
+      countryData &&
+        (await fetch(
+          `https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join()}`
+        )
+          .then((res) => {
+            return res.json();
+          })
+          .then((borderCountries) => {
+            setBorderCountries([...borderCountries]);
+          }));
+    }
+    getBorders();
+  }, [countryData]);
 
   function getNativeName() {
     let nativeNames = { ...countryData.name.nativeName };
