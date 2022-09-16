@@ -7,6 +7,7 @@ export function BorderCountries({ countryData }) {
   useEffect(() => {
     async function getBorders() {
       countryData &&
+        countryData.borders &&
         (await fetch(
           `https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join()}`
         )
