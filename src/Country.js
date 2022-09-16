@@ -24,7 +24,7 @@ export function Country() {
 
   return (
     <div className="countryPage">
-      <Link className="countryPage__backbtn" to="/shabr4wy/learn-countries">
+      <Link className="countryPage__backbtn" to="/learn-countries">
         back
       </Link>
       {countryData && (

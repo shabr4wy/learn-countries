@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route
           exact
-          path="/shabr4wy/learn-countries"
+          path="/learn-countries"
           element={
             <div>
               <SearchCountry setCountriesArray={setCountriesArray} />
