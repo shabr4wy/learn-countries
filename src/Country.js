@@ -25,7 +25,7 @@ export function Country() {
   return (
     <div className="countryPage">
       <Link className="countryPage__backbtn" to="/learn-countries">
-        back
+        ← search page
       </Link>
       {countryData && (
         <div className="countryPage__grid">
