@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
 
-export function CountriesList({ countriesArray }) {
+export function CountriesList({ countriesArray, selectedRegion }) {
+  const countriesFromLocalStorage = JSON.parse(
+    window.localStorage.getItem("countriesArray")
+  );
+
+  // check if the user navigated back from country page.
+  let countries;
+  if (selectedRegion && countriesFromLocalStorage) {
+    countries = [...countriesFromLocalStorage];
+  } else {
+    countries = countriesArray;
+  }
+
   return (
     // countries list
     <section>
       <ul className="countriesList">
-        {countriesArray &&
-          countriesArray.map((country) => (
+        {countries &&
+          countries.map((country) => (
             <li key={country.name.common} className="countryItem">
               <Link to={`/${country.name.common}`}>
                 <div className="countriesList__countryFlag">

@@ -26,7 +26,10 @@ function App() {
           })
           .then((regionCountries) => {
             setCountriesArray([...regionCountries]);
-            console.log(regionCountries);
+            window.localStorage.setItem(
+              "countriesArray",
+              JSON.stringify([...regionCountries])
+            );
           });
       }
     };
@@ -47,7 +50,10 @@ function App() {
                 selectedRegion={selectedRegion}
                 handleChange={handleChange}
               />
-              <CountriesList countriesArray={countriesArray} />
+              <CountriesList
+                countriesArray={countriesArray}
+                selectedRegion={selectedRegion}
+              />
             </div>
           }
         />
