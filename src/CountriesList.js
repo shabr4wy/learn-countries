@@ -11,6 +11,9 @@ export function CountriesList({ countriesArray, selectedRegion }) {
     countries = [...countriesFromSessionStorage];
   } else {
     countries = countriesArray;
+
+    // empty setorage to prevent rendering the past search result.
+    window.sessionStorage.removeItem("countriesArray");
   }
 
   return (
