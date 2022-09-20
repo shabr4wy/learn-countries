@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
 export function CountriesList({ countriesArray, selectedRegion }) {
-  const countriesFromLocalStorage = JSON.parse(
-    window.localStorage.getItem("countriesArray")
+  const countriesFromSessionStorage = JSON.parse(
+    window.sessionStorage.getItem("countriesArray")
   );
 
   // check if the user navigated back from country page.
   let countries;
-  if (selectedRegion && countriesFromLocalStorage) {
-    countries = [...countriesFromLocalStorage];
+  if (selectedRegion && countriesFromSessionStorage) {
+    countries = [...countriesFromSessionStorage];
   } else {
     countries = countriesArray;
   }

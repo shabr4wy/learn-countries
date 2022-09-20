@@ -26,7 +26,7 @@ function App() {
           })
           .then((regionCountries) => {
             setCountriesArray([...regionCountries]);
-            window.localStorage.setItem(
+            window.sessionStorage.setItem(
               "countriesArray",
               JSON.stringify([...regionCountries])
             );
