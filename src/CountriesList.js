@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-export function CountriesList({ countriesArray, selectedRegion }) {
+export function CountriesList({
+  countriesArray,
+  selectedRegion,
+  isCountryFounded,
+}) {
   const countriesFromSessionStorage = JSON.parse(
     window.sessionStorage.getItem("countriesArray")
   );
@@ -19,33 +23,39 @@ export function CountriesList({ countriesArray, selectedRegion }) {
   return (
     // countries list
     <section>
-      <ul className="countriesList">
-        {countries &&
-          countries.map((country) => (
-            <li key={country.name.common} className="countryItem">
-              <Link to={`/${country.name.common}`}>
-                <div className="countriesList__countryFlag">
-                  <img
-                    src={country.flags.svg}
-                    alt={country.name.common + " flag"}
-                    height="60"
-                    width="100"
-                    loading="lazy"
-                  ></img>
-                </div>
+      {isCountryFounded ? (
+        <ul className="countriesList">
+          {countries &&
+            countries.map((country) => (
+              <li key={country.name.common} className="countryItem">
+                <Link to={`/${country.name.common}`}>
+                  <div className="countriesList__countryFlag">
+                    <img
+                      src={country.flags.svg}
+                      alt={country.name.common + " flag"}
+                      height="60"
+                      width="100"
+                      loading="lazy"
+                    ></img>
+                  </div>
 
-                <ul className="countriesList__countryGeogrpahy">
-                  <li>{country.name.common}</li>
-                  <li>Capital: {country.capital}</li>
-                  <li>Region: {country.region}</li>
-                  <li>
-                    Population: {country.population.toLocaleString("en-US")}
-                  </li>
-                </ul>
-              </Link>
-            </li>
-          ))}
-      </ul>
+                  <ul className="countriesList__countryGeogrpahy">
+                    <li>{country.name.common}</li>
+                    <li>Capital: {country.capital}</li>
+                    <li>Region: {country.region}</li>
+                    <li>
+                      Population: {country.population.toLocaleString("en-US")}
+                    </li>
+                  </ul>
+                </Link>
+              </li>
+            ))}
+        </ul>
+      ) : (
+        <p className="noSearchResult">
+          No country is founded, please try again.
+        </p>
+      )}
     </section>
   );
 }

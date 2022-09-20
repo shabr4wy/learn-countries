@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import debounce from "lodash.debounce";
 
-export function SearchCountry({ setCountriesArray }) {
+export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
   const [searchedCountry, setSearchedCountry] = useState("");
 
   const handleChange = (event) => {
@@ -20,6 +20,9 @@ export function SearchCountry({ setCountriesArray }) {
       async function getCountry() {
         await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`)
           .then((res) => {
+            // to be able to show search results
+            setIsCountryFounded(true);
+
             return res.json();
           })
           .then((searchResult) => {
@@ -30,6 +33,10 @@ export function SearchCountry({ setCountriesArray }) {
               "countriesArray",
               JSON.stringify([...searchResult])
             );
+          })
+          .catch(() => {
+            // inform user that is no country founded
+            setIsCountryFounded(false);
           });
       }
       getCountry();

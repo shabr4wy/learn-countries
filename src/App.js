@@ -16,12 +16,18 @@ function App() {
   // store countries data
   const [countriesArray, setCountriesArray] = useState("");
 
+  // to inform user if no country founded
+  const [isCountryFounded, setIsCountryFounded] = useState(true);
+
   // fetch countries data
   useEffect(() => {
     const getCountries = async () => {
       if (selectedRegion) {
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`)
           .then((res) => {
+            // to be able to show search results
+            setIsCountryFounded(true);
+
             return res.json();
           })
           .then((regionCountries) => {
@@ -45,12 +51,16 @@ function App() {
           path="/learn-countries"
           element={
             <div>
-              <SearchCountry setCountriesArray={setCountriesArray} />
+              <SearchCountry
+                setCountriesArray={setCountriesArray}
+                setIsCountryFounded={setIsCountryFounded}
+              />
               <RegionMenu
                 selectedRegion={selectedRegion}
                 handleChange={handleChange}
               />
               <CountriesList
+                isCountryFounded={isCountryFounded}
                 countriesArray={countriesArray}
                 selectedRegion={selectedRegion}
               />
