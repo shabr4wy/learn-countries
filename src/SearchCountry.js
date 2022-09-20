@@ -47,6 +47,9 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
       getCountry();
     } else {
       setCountriesArray("");
+
+      // prevent showing "no country found" as the text input is already empty
+      setIsCountryFounded(true);
     }
 
     // clean up effect
