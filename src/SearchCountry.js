@@ -16,6 +16,12 @@ export function SearchCountry({ setCountriesArray }) {
           })
           .then((searchResult) => {
             setCountriesArray([...searchResult]);
+
+            // make session storage the source of truth
+            window.sessionStorage.setItem(
+              "countriesArray",
+              JSON.stringify([...searchResult])
+            );
           });
       }
       getCountry();
