@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import debounce from "lodash.debounce";
 
 export function SearchCountry({ setCountriesArray }) {
   const [searchedCountry, setSearchedCountry] = useState("");
@@ -6,6 +7,13 @@ export function SearchCountry({ setCountriesArray }) {
   const handleChange = (event) => {
     setSearchedCountry(event.target.value);
   };
+
+  // debounce search input
+  // you don't know what is debouncing? check the following article:
+  // https://css-tricks.com/debouncing-throttling-explained-examples/
+  // how to debounce? check the following article:
+  // https://dmitripavlutin.com/react-throttle-debounce/
+  const debounceHandleChange = useMemo(() => debounce(handleChange, 500), []);
 
   useEffect(() => {
     if (searchedCountry) {
@@ -33,8 +41,7 @@ export function SearchCountry({ setCountriesArray }) {
   return (
     <section className="search">
       <input
-        value={searchedCountry && searchedCountry}
-        onChange={handleChange}
+        onChange={debounceHandleChange}
         className="search__input"
         placeholder="search for a country..."
       ></input>
