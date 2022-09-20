@@ -13,7 +13,7 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
   // https://css-tricks.com/debouncing-throttling-explained-examples/
   // how to debounce? check the following article:
   // https://dmitripavlutin.com/react-throttle-debounce/
-  const debounceHandleChange = useMemo(() => debounce(handleChange, 500), []);
+  const debounceHandleChange = useMemo(() => debounce(handleChange, 200), []);
 
   useEffect(() => {
     const controller = new AbortController();
