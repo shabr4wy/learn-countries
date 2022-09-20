@@ -16,9 +16,14 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
   const debounceHandleChange = useMemo(() => debounce(handleChange, 500), []);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
     if (searchedCountry) {
       async function getCountry() {
-        await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`)
+        await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`, {
+          signal,
+        })
           .then((res) => {
             // to be able to show search results
             setIsCountryFounded(true);
@@ -43,6 +48,9 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
     } else {
       setCountriesArray("");
     }
+
+    // clean up effect
+    return () => controller.abort();
   }, [searchedCountry]);
 
   return (

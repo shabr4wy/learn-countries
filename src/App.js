@@ -21,9 +21,14 @@ function App() {
 
   // fetch countries data
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
     const getCountries = async () => {
       if (selectedRegion) {
-        await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`)
+        await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
+          signal,
+        })
           .then((res) => {
             // to be able to show search results
             setIsCountryFounded(true);
@@ -39,8 +44,10 @@ function App() {
           });
       }
     };
-
     getCountries();
+
+    // clean up effect
+    return () => controller.abort();
   }, [selectedRegion]);
 
   return (
