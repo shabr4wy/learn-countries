@@ -41,7 +41,12 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
           })
           .catch(() => {
             // inform user that is no country founded
-            setIsCountryFounded(false);
+
+            // make catch works only if no search result to prevent unexpected behavior
+            // beacause without if the catch wil work after fetch is aborted
+            if (signal.aborted === false) {
+              setIsCountryFounded(false);
+            }
           });
       }
       getCountry();
