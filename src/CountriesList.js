@@ -1,23 +1,19 @@
 import { Link } from "react-router-dom";
 
-export function CountriesList({
-  countriesArray,
-  selectedRegion,
-  isCountryFounded,
-}) {
+export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
   const countriesFromSessionStorage = JSON.parse(
-    window.sessionStorage.getItem("countriesArray")
+    window.sessionStorage.getItem("countries")
   );
 
   // check if the user navigated back from country page.
-  let countries;
+  let countriesToRender;
   if (selectedRegion && countriesFromSessionStorage) {
-    countries = [...countriesFromSessionStorage];
+    countriesToRender = [...countriesFromSessionStorage];
   } else {
-    countries = countriesArray;
+    countriesToRender = countries;
 
     // empty setorage to prevent rendering the past search result.
-    window.sessionStorage.removeItem("countriesArray");
+    window.sessionStorage.removeItem("countries");
   }
 
   return (
@@ -25,8 +21,8 @@ export function CountriesList({
     <section>
       {isCountryFounded ? (
         <ul className="countriesList">
-          {countries &&
-            countries.map((country) => (
+          {countriesToRender &&
+            countriesToRender.map((country) => (
               <li key={country.name.common} className="countryItem">
                 <Link to={`/${country.name.common}`}>
                   <div className="countriesList__countryFlag">

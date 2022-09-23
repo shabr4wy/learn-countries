@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import debounce from "lodash.debounce";
 
-export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
+export function SearchCountry({ setCountries, setIsCountryFounded }) {
   const [searchedCountry, setSearchedCountry] = useState("");
 
   const handleChange = (event) => {
@@ -31,11 +31,11 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
             return res.json();
           })
           .then((searchResult) => {
-            setCountriesArray([...searchResult]);
+            setCountries([...searchResult]);
 
             // make session storage the source of truth
             window.sessionStorage.setItem(
-              "countriesArray",
+              "countries",
               JSON.stringify([...searchResult])
             );
           })
@@ -51,7 +51,7 @@ export function SearchCountry({ setCountriesArray, setIsCountryFounded }) {
       }
       getCountry();
     } else {
-      setCountriesArray("");
+      setCountries("");
 
       // prevent showing "no country found" as the text input is already empty
       setIsCountryFounded(true);

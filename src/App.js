@@ -14,7 +14,7 @@ function App() {
   };
 
   // store countries data
-  const [countriesArray, setCountriesArray] = useState("");
+  const [countries, setCountries] = useState("");
 
   // to inform user if no country founded
   const [isCountryFounded, setIsCountryFounded] = useState(true);
@@ -36,9 +36,9 @@ function App() {
             return res.json();
           })
           .then((regionCountries) => {
-            setCountriesArray([...regionCountries]);
+            setCountries([...regionCountries]);
             window.sessionStorage.setItem(
-              "countriesArray",
+              "countries",
               JSON.stringify([...regionCountries])
             );
           });
@@ -59,7 +59,7 @@ function App() {
           element={
             <div>
               <SearchCountry
-                setCountriesArray={setCountriesArray}
+                setCountries={setCountries}
                 setIsCountryFounded={setIsCountryFounded}
               />
               <RegionMenu
@@ -68,7 +68,7 @@ function App() {
               />
               <CountriesList
                 isCountryFounded={isCountryFounded}
-                countriesArray={countriesArray}
+                countries={countries}
                 selectedRegion={selectedRegion}
               />
             </div>
