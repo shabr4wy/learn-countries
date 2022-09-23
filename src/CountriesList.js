@@ -10,8 +10,8 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
   if (selectedRegion && countriesFromSessionStorage) {
     countriesToRender = [...countriesFromSessionStorage];
   } else {
+    // to render the result of search bar if no region is selected
     countriesToRender = countries;
-
     // empty setorage to prevent rendering the past search result.
     window.sessionStorage.removeItem("countries");
   }

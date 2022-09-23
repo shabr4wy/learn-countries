@@ -25,9 +25,7 @@ export function SearchCountry({ setCountries, setIsCountryFounded }) {
           signal,
         })
           .then((res) => {
-            // to be able to show search results
             setIsCountryFounded(true);
-
             return res.json();
           })
           .then((searchResult) => {
@@ -40,10 +38,7 @@ export function SearchCountry({ setCountries, setIsCountryFounded }) {
             );
           })
           .catch(() => {
-            // inform user that is no country founded
-
-            // make catch works only if no search result to prevent unexpected behavior
-            // beacause without if the catch wil work after fetch is aborted
+            // prevent catch from running unless the result is invalid
             if (signal.aborted === false) {
               setIsCountryFounded(false);
             }
