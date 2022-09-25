@@ -10,7 +10,7 @@
 
 # CSS
 /src/*.css
-
+/src/App.css.map
 # production
 /build
 
