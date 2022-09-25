@@ -20,7 +20,6 @@ export function SearchCountry({ setCountries, setIsCountryFounded }) {
     const { signal } = controller;
 
     if (searchedCountry) {
-      console.log("effect");
       async function getCountry() {
         await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`, {
           signal,

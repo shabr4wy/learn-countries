@@ -6,8 +6,9 @@ import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
 
 export function Country() {
-  let params = useParams();
   const [countryData, setCountryData] = useState("");
+
+  let params = useParams();
 
   useEffect(() => {
     async function getCountry() {

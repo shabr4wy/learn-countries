@@ -8,16 +8,13 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [countries, setCountries] = useState("");
+  // to inform user if no country founded
+  const [isCountryFounded, setIsCountryFounded] = useState(true);
 
   const handleChange = (value) => {
     setSelectedRegion(value);
   };
-
-  // store countries data
-  const [countries, setCountries] = useState("");
-
-  // to inform user if no country founded
-  const [isCountryFounded, setIsCountryFounded] = useState(true);
 
   // fetch countries data
   useEffect(() => {
