@@ -1,0 +1,15 @@
+/* ---base rules--- */
+body {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+}
+  
+h2{
+    font-size: inherit;
+}
+  
+button,
+input,
+select {
+    font-family: "Nunito Sans", sans-serif;
+}
