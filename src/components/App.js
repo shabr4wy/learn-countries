@@ -54,7 +54,7 @@ function App() {
           exact
           path="/learn-countries"
           element={
-            <div>
+            <div className="countriesSearchPage">
               <SearchCountry
                 setCountries={setCountries}
                 setIsCountryFounded={setIsCountryFounded}
