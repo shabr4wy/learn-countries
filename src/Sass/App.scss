@@ -13,3 +13,8 @@ input,
 select {
     font-family: "Nunito Sans", sans-serif;
 }
+
+div svg,
+div img {
+    max-inline-size: 100%;
+}
