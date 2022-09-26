@@ -14,9 +14,10 @@ select {
     font-family: "Nunito Sans", sans-serif;
 }
 
-div svg,
-div img {
-    max-inline-size: 100%;
+div{
+    svg{max-inline-size: 100%;}
+    
+    img{max-inline-size: 100%;}
 }
 
 ul li {
