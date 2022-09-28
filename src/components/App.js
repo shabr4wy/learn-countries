@@ -48,7 +48,7 @@ function App() {
   }, [selectedRegion]);
 
   return (
-    <div className="App">
+    <div className="main">
       <Routes>
         <Route
           exact
