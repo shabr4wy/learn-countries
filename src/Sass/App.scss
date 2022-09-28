@@ -20,7 +20,7 @@ ul {
 
 /* ---layout--- */
 body {
-    margin: 15px 5vw;
+    padding: 15px 5vw;
 }
 
 
@@ -40,6 +40,11 @@ body {
     &__theme__icon {
         max-width: 20px;
     }
+}
+
+
+.countriesSearchPage section {
+    margin-top: 30px;
 }
 
 .countriesList {
