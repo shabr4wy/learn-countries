@@ -35,4 +35,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &__theme__switch {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 110px;
+    }
+        
+    &__theme__icon {
+        max-width: 20px;
+    }
 }
