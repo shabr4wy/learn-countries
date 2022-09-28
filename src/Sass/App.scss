@@ -12,8 +12,9 @@ div{
     img{max-inline-size: 100%;}
 }
 
-ul li {
+ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 
@@ -41,6 +42,8 @@ body {
     }
 }
 
-.search {
-    margin-bottom: 20px;
+.countriesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
 }
