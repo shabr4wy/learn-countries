@@ -4,6 +4,7 @@ button,
 input,
 select {
     font-family: "Nunito Sans", sans-serif;
+    color: inherit;
 }
 
 div{
@@ -52,4 +53,10 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     justify-items: center;
+}
+
+
+/* ---theme--- */
+html {
+    background-color:  hsl(207, 26%, 17%);
 }
