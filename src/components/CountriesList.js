@@ -36,7 +36,7 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
                   </div>
 
                   <ul className="countriesList__countryGeogrpahy">
-                    <li>{country.name.common}</li>
+                    <li><strong> {country.name.common} </strong> </li>
                     <li>Capital: {country.capital}</li>
                     <li>Region: {country.region}</li>
                     <li>
