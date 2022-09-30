@@ -35,10 +35,10 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
 
                   <ul className="countriesList__countryGeogrpahy">
                     <li><strong> {country.name.common} </strong> </li>
-                    <li>Capital: {country.capital}</li>
-                    <li>Region: {country.region}</li>
+                    <li> <span>Capital: </span> {country.capital}</li>
+                    <li> <span>Region: </span> {country.region}</li>
                     <li>
-                      Population: {country.population.toLocaleString("en-US")}
+                      <span>Population: </span> {country.population.toLocaleString("en-US")}
                     </li>
                   </ul>
                 </Link>

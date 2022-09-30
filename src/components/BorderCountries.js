@@ -23,6 +23,7 @@ export function BorderCountries({ countryData }) {
 
   return (
     <ul className="countryPage_borders">
+      <span> Border Countries: </span>
       {borderCountries &&
         borderCountries.map((borderCountry) => (
           <Link

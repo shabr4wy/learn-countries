@@ -11,9 +11,9 @@ export function CountryLife({ countryData }) {
 
   return (
     <ul className="countryPage__life">
-      <li>Languages: {getLanguages()}</li>
-      <li>Currency: {getCurrency()}</li>
-      <li>Car Side: {countryData.car.side}</li>
+      <li><span>Languages:</span> {getLanguages()}</li>
+      <li><span>Currencies:</span> {getCurrency()}</li>
+      <li><span>Car Side:</span> {countryData.car.side}</li>
     </ul>
   );
 }
