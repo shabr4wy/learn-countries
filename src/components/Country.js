@@ -25,11 +25,11 @@ export function Country() {
 
   return (
     <div className="countryPage">
-      <Link className="countryPage__backbtn" to="/learn-countries">
+      <Link className="countryPage__backToSearch" to="/learn-countries">
         ← search page
       </Link>
       {countryData && (
-        <div className="countryPage__grid">
+        <div className="countryPage__data">
           <div className="countryPage__flag">
             <img
               src={countryData.flags.svg}
