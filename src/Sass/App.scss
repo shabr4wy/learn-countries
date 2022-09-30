@@ -55,6 +55,13 @@ ul {
 
 .search {
 
+    &__icon {
+        height: 24px;
+        position: relative;
+        top: 38px;
+        left: 28px;
+    }
+
     &__input {
         box-sizing: border-box;
         width: 100%;
