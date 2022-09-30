@@ -53,6 +53,19 @@ ul {
     margin-top: 30px;
 }
 
+.search {
+
+    &__input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 45px;
+        padding: 0 10px 0 80px;
+        border: none;
+        border-radius: 5px;
+        font-size: inherit;
+    }
+}
+
 .countriesList {
     display: grid;
     max-width: 1380px;
