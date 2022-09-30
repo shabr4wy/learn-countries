@@ -55,9 +55,30 @@ ul {
 
 .countriesList {
     display: grid;
+    max-width: 1380px;
+    margin: auto;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     justify-items: center;
+    gap: 60px;
+
+    &__countryGeogrpahy {
+        padding: 20px;
+    
+        & li:first-child {
+            padding-bottom: 10px;
+            font-size: large;
+        }
+    }
 }
+
+.countryItem {
+    border-radius: 5px;
+
+    & img {
+        border-radius: 5px 5px 0 0;
+    }
+}
+
 
 
 /* ---theme--- */
