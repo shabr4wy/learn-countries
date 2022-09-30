@@ -22,17 +22,18 @@ export function BorderCountries({ countryData }) {
   }, [countryData]);
 
   return (
-    <ul className="countryPage_borders">
-      <span> Border Countries: </span>
-      {borderCountries &&
-        borderCountries.map((borderCountry) => (
-          <Link
-            key={borderCountry.name.common}
-            to={`/${borderCountry.name.common}`}
-          >
-            <li>{borderCountry.name.common}</li>
-          </Link>
-        ))}
-    </ul>
+    <div className="countryPage__borders">
+      <p className="countryPage__bordersLabel">Border Countries: </p>
+      <ul className="countryPage_bordersList">
+        {borderCountries &&
+          borderCountries.map((borderCountry) => (
+            <li key={borderCountry.name.common}>
+              <Link to={`/${borderCountry.name.common}`}>
+                {borderCountry.name.common}
+              </Link>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 }
