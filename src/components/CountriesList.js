@@ -29,8 +29,6 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
                     <img
                       src={country.flags.svg}
                       alt={country.name.common + " flag"}
-                      height="60"
-                      width="100"
                       loading="lazy"
                     ></img>
                   </div>

@@ -34,8 +34,6 @@ export function Country() {
             <img
               src={countryData.flags.svg}
               alt={countryData.name.common + " flag"}
-              height="60"
-              width="100"
               loading="lazy"
             ></img>
           </div>
