@@ -53,8 +53,11 @@ ul {
     margin-top: 30px;
 }
 
-.search {
+.countriesSearchPage .search {
+    margin-top: 6px;
+}
 
+.search {
     &__icon {
         height: 24px;
         position: relative;
