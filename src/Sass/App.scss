@@ -76,6 +76,15 @@ ul {
     }
 }
 
+.regionMenu select {
+    width: 100%;
+    padding: 0 28px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: inherit;
+}
+
 .countriesList {
     display: grid;
     max-width: 1380px;
