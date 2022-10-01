@@ -85,6 +85,11 @@ ul {
     font-size: inherit;
 }
 
+.countryDataLabel {
+    font-weight: 800;
+    font-size: 1.05em;
+}
+
 .countriesList {
     display: grid;
     max-width: 1380px;
@@ -95,10 +100,11 @@ ul {
 
     &__countryGeogrpahy {
         padding: 20px;
+        line-height: 1.8;
     
         & li:first-child {
             padding-bottom: 10px;
-            font-size: large;
+            font-size: 1.4em;
         }
     }
 }
