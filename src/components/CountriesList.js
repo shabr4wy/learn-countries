@@ -34,11 +34,22 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
                   </div>
 
                   <ul className="countriesList__countryGeogrpahy">
-                    <li><strong> {country.name.common} </strong> </li>
-                    <li> <span>Capital: </span> {country.capital}</li>
-                    <li> <span>Region: </span> {country.region}</li>
                     <li>
-                      <span>Population: </span> {country.population.toLocaleString("en-US")}
+                      <strong> {country.name.common} </strong>{" "}
+                    </li>
+                    <li>
+                      {" "}
+                      <span className="countryDataLabel">Capital: </span>{" "}
+                      {country.capital}
+                    </li>
+                    <li>
+                      {" "}
+                      <span className="countryDataLabel">Region: </span>{" "}
+                      {country.region}
+                    </li>
+                    <li>
+                      <span className="countryDataLabel">Population: </span>{" "}
+                      {country.population.toLocaleString("en-US")}
                     </li>
                   </ul>
                 </Link>

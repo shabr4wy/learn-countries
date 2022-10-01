@@ -6,11 +6,23 @@ export function CountryGeogeapghy({ countryData }) {
 
   return (
     <ul className="countryPage__countryGeograpghy">
-      <li><span>Native Name:</span> {getNativeName()}</li>
-      <li><span>Capital:</span> {countryData.capital}</li>
-      <li><span>Region:</span> {countryData.region}</li>
-      <li><span>Sub Region:</span> {countryData.subregion}</li>
-      <li><span>Population:</span> {countryData.population.toLocaleString("en-US")}</li>
+      <li>
+        <span className="countryDataLabel">Native Name:</span> {getNativeName()}
+      </li>
+      <li>
+        <span className="countryDataLabel">Capital:</span> {countryData.capital}
+      </li>
+      <li>
+        <span className="countryDataLabel">Region:</span> {countryData.region}
+      </li>
+      <li>
+        <span className="countryDataLabel">Sub Region:</span>{" "}
+        {countryData.subregion}
+      </li>
+      <li>
+        <span className="countryDataLabel">Population:</span>{" "}
+        {countryData.population.toLocaleString("en-US")}
+      </li>
     </ul>
   );
 }
