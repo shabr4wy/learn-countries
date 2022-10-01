@@ -124,6 +124,24 @@ ul {
     border-radius: 5px;
 }
 
+.countryPage {
+    line-height: 2.4;
+
+    ul {
+        margin-bottom: 40px;
+    }
+
+    &__name {
+        font-weight: 800;
+        font-size: 2em;
+    }
+
+    &__bordersLabel {
+        font-weight: 800;
+        font-size: 1.05em;
+    }
+}
+
 
 /* ---theme--- */
 html {
