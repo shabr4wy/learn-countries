@@ -48,28 +48,25 @@ ul {
     }
 }
 
-
 .countriesSearchPage section {
     margin-top: 30px;
 }
 
-.countriesSearchPage .search {
-    margin-top: 6px;
-}
-
 .search {
+    position: relative;
+    
     &__icon {
         height: 24px;
-        position: relative;
-        top: 38px;
-        left: 28px;
+        position: absolute;
+        top: 11.5px;
+        left: 18px;
     }
 
     &__input {
         box-sizing: border-box;
         width: 100%;
         height: 45px;
-        padding: 0 10px 0 80px;
+        padding: 0 10px 0 60px;
         border: none;
         border-radius: 5px;
         font-size: inherit;
