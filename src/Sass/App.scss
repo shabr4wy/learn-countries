@@ -216,6 +216,7 @@ ul {
 
 
 /* ---theme--- */
+/* dark mode */ 
 html {
     background-color: $DarkModeBackground;
     color: white;
@@ -224,13 +225,14 @@ html {
 select,
 input,
 button,
-.countryItem {
+header,
+.countryItem,
+.countryPage__backToSearch,
+.countryPage_bordersList li {
     background-color: $DarkModeElements;
 }
 
 .header {
-    background-color: $DarkModeElements;
-
     &__theme__switch {
         border: none;
     }
@@ -242,9 +244,4 @@ button,
 
 .search__icon {
     fill: white;
-}
-
-.countryPage__backToSearch,
-.countryPage_bordersList li {
-    background-color: $DarkModeElements;
 }
