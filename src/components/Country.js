@@ -38,13 +38,12 @@ export function Country() {
             ></img>
           </div>
 
-          <div>
+          <div className="countryPage__details">
             <p className="countryPage__name">{countryData.name.common}</p>
+            <CountryGeogeapghy countryData={countryData} />
+            <CountryLife countryData={countryData} />
+            <BorderCountries countryData={countryData} />
           </div>
-
-          <CountryGeogeapghy countryData={countryData} />
-          <CountryLife countryData={countryData} />
-          <BorderCountries countryData={countryData} />
         </div>
       )}
     </div>
