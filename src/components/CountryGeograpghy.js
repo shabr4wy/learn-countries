@@ -5,7 +5,7 @@ export function CountryGeogeapghy({ countryData }) {
   }
 
   return (
-    <ul className="countryPage__countryGeograpghy">
+    <ul className="countryPage__Geograpghy">
       <li>
         <span className="countryDataLabel">Native Name:</span> {getNativeName()}
       </li>
