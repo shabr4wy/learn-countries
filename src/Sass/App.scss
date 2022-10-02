@@ -48,8 +48,12 @@ ul {
     }
 }
 
-.countriesSearchPage section {
-    margin-top: 30px;
+.countriesSearchPage {
+    margin: 20px 0;
+
+    section {
+        margin: 10px 0;
+    }
 }
 
 .search {
@@ -180,13 +184,14 @@ ul {
     .countriesSearchPage {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin: 30px 0;
-        gap: 30px 0;
+
+        section {
+            margin: 20px 0;
+        }
 
         .search {
             justify-self: start;
             width: 500px;
-            margin-top: 0;
         }
 
         .regionMenu {
