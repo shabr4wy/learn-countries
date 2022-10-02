@@ -1,4 +1,9 @@
 /* ---base rules--- */
+
+/* variables */ 
+$DarkModeElements : hsl(209, 23%, 22%);
+$DarkModeBackground : hsl(207, 26%, 17%);
+
 button,
 input,
 select,
@@ -212,7 +217,7 @@ ul {
 
 /* ---theme--- */
 html {
-    background-color:  hsl(207, 26%, 17%);
+    background-color: $DarkModeBackground;
     color: white;
 }
 
@@ -220,11 +225,11 @@ select,
 input,
 button,
 .countryItem {
-    background-color: hsl(209, 23%, 22%);
+    background-color: $DarkModeElements;
 }
 
 .header {
-    background-color: hsl(209, 23%, 22%);
+    background-color: $DarkModeElements;
 
     &__theme__switch {
         border: none;
@@ -241,5 +246,5 @@ button,
 
 .countryPage__backToSearch,
 .countryPage_bordersList li {
-    background-color: hsl(209, 23%, 22%);
+    background-color: $DarkModeElements;
 }
