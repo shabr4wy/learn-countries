@@ -58,7 +58,7 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
         </ul>
       ) : (
         <p className="noSearchResult">
-          No country is founded, please try again.
+          No country is matched, please try again.
         </p>
       )}
     </section>
