@@ -5,6 +5,7 @@ import { RegionMenu } from "./RegionMenu";
 import { SearchCountry } from "./SearchCountry";
 import { Country } from "./Country";
 import { Route, Routes } from "react-router-dom";
+import { Header } from "./Header";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -48,13 +49,14 @@ function App() {
   }, [selectedRegion]);
 
   return (
-    <div className="main">
+    <div className="app">
+      <Header />
       <Routes>
         <Route
           exact
           path="/learn-countries"
           element={
-            <div className="countriesSearchPage">
+            <main className="countriesSearchPage main">
               <SearchCountry
                 setCountries={setCountries}
                 setIsCountryFounded={setIsCountryFounded}
@@ -68,7 +70,7 @@ function App() {
                 countries={countries}
                 selectedRegion={selectedRegion}
               />
-            </div>
+            </main>
           }
         />
         <Route path=":countryCode" element={<Country />} />

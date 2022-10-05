@@ -24,7 +24,7 @@ export function Country() {
   }, [params]);
 
   return (
-    <div className="countryPage">
+    <main className="countryPage main">
       <Link className="countryPage__backToSearch" to="/learn-countries">
         ← search page
       </Link>
@@ -46,6 +46,6 @@ export function Country() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }
