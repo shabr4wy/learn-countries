@@ -24,7 +24,7 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
           {countriesToRender &&
             countriesToRender.map((country) => (
               <li key={country.name.common} className="countryItem">
-                <Link to={`/${country.name.common}`}>
+                <Link to={`/${country.cca2}`}>
                   <div className="countriesList__countryFlag">
                     <img
                       src={country.flags.svg}

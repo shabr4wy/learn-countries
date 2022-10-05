@@ -71,7 +71,7 @@ function App() {
             </div>
           }
         />
-        <Route path=":countryName" element={<Country />} />
+        <Route path=":countryCode" element={<Country />} />
       </Routes>
     </div>
   );

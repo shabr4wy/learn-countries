@@ -12,7 +12,7 @@ export function Country() {
 
   useEffect(() => {
     async function getCountry() {
-      await fetch(`https://restcountries.com/v3.1/name/${params.countryName}`)
+      await fetch(`https://restcountries.com/v3.1/alpha/${params.countryCode}`)
         .then((res) => {
           return res.json();
         })

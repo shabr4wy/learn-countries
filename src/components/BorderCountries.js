@@ -35,7 +35,7 @@ export function BorderCountries({ countryData }) {
           {borderCountries &&
             borderCountries.map((borderCountry) => (
               <li key={borderCountry.name.common}>
-                <Link to={`/${borderCountry.name.common}`}>
+                <Link to={`/${borderCountry.cca2}`}>
                   {borderCountry.name.common}
                 </Link>
               </li>
