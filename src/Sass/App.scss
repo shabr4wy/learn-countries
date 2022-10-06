@@ -121,7 +121,6 @@ ul {
     max-width: 1380px;
     margin: auto;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    justify-items: center;
     gap: 60px;
 
     &__countryGeogrpahy {
