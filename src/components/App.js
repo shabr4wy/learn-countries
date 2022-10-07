@@ -45,6 +45,10 @@ function App() {
     return theme === "light" ? "white" : "hsl(209, 23%, 22%)";
   };
 
+  const toggleSvgFill = (lightColorMode, darkColorMode) => {
+    return theme === "light" ? lightColorMode : darkColorMode;
+  };
+
   const handleChange = (value) => {
     setSelectedRegion(value);
   };
@@ -84,6 +88,7 @@ function App() {
     <div className="app">
       <Header
         handleClick={handleClick}
+        toggleSvgFill={toggleSvgFill}
         toggleElementBackground={toggleElementBackground}
       />
       <Routes>

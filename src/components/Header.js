@@ -1,4 +1,8 @@
-export function Header({ handleClick, toggleElementBackground }) {
+export function Header({
+  handleClick,
+  toggleElementBackground,
+  toggleSvgFill,
+}) {
   return (
     <header
       className="header"
@@ -15,6 +19,7 @@ export function Header({ handleClick, toggleElementBackground }) {
           style={{ background: toggleElementBackground() }}
         >
           <svg
+            style={{ fill: toggleSvgFill("hsl(209, 23%, 22%)", "white") }}
             className="header__theme__icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
