@@ -41,6 +41,14 @@ function App() {
     }
   };
 
+  const toggleElementBackground = () => {
+    if (theme === "light") {
+      return "white";
+    } else {
+      return "hsl(209, 23%, 22%)";
+    }
+  };
+
   const handleChange = (value) => {
     setSelectedRegion(value);
   };
