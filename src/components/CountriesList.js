@@ -11,11 +11,13 @@ export function CountriesList({
   );
 
   // check if the user navigated back from country page.
+  // hint: select element preserve its state even when user
+  // navigates between country and search page.
   let countriesToRender;
   if (selectedRegion && countriesFromSessionStorage) {
     countriesToRender = [...countriesFromSessionStorage];
   } else {
-    // to render the result of search bar if no region is selected
+    // to render the result of search inputs if no region was selected.
     countriesToRender = countries;
     // empty setorage to prevent rendering the past search result.
     window.sessionStorage.removeItem("countries");

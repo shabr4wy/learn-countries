@@ -36,14 +36,15 @@ export function SearchCountry({
           .then((searchResult) => {
             setCountries([...searchResult]);
 
-            // make session storage the source of truth
+            // make session storage the source of truth of countries
             window.sessionStorage.setItem(
               "countries",
               JSON.stringify([...searchResult])
             );
           })
           .catch(() => {
-            // prevent catch from running unless the result is invalid
+            // to not run catch if user deletes his input
+            // doing so insures that the catch will only run if user introduced invalid input
             if (signal.aborted === false) {
               setIsCountryFounded(false);
             }
@@ -53,7 +54,7 @@ export function SearchCountry({
     } else {
       setCountries("");
 
-      // prevent showing "no country found" as the text input is already empty
+      // prevent showing "no country founded" as the text input is already empty
       setIsCountryFounded(true);
     }
 

@@ -24,7 +24,7 @@ function App() {
     // no 'else' statement as the default theme is dark.
   }
 
-  // cahnge theme
+  // toggle theme
   const handleClick = () => {
     // switch to dark theme
     if (theme === "light") {
