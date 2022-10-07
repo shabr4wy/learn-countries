@@ -99,6 +99,7 @@ function App() {
             <main className="countriesSearchPage main">
               <SearchCountry
                 setCountries={setCountries}
+                toggleSvgFill={toggleSvgFill}
                 setIsCountryFounded={setIsCountryFounded}
                 toggleElementBackground={toggleElementBackground}
               />

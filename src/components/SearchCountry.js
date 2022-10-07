@@ -4,6 +4,7 @@ import debounce from "lodash.debounce";
 export function SearchCountry({
   setCountries,
   setIsCountryFounded,
+  toggleSvgFill,
   toggleElementBackground,
 }) {
   const [searchedCountry, setSearchedCountry] = useState("");
@@ -63,6 +64,7 @@ export function SearchCountry({
   return (
     <section className="search">
       <svg
+        style={{ fill: toggleSvgFill("hsl(0, 0%, 52%)", "white") }}
         viewBox="0 0 512 512"
         className="search__icon"
         xmlns="http://www.w3.org/2000/svg"
