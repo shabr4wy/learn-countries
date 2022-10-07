@@ -38,7 +38,7 @@ export function BorderCountries({ countryData, toggleElementBackground }) {
                 key={borderCountry.name.common}
                 style={{ background: toggleElementBackground() }}
               >
-                <Link to={`/${borderCountry.cca2}`}>
+                <Link to={`/learn-countries/${borderCountry.cca2}`}>
                   {borderCountry.name.common}
                 </Link>
               </li>

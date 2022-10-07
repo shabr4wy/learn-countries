@@ -119,7 +119,7 @@ function App() {
           }
         />
         <Route
-          path=":countryCode"
+          path="/learn-countries/:countryCode"
           element={
             <Country toggleElementBackground={toggleElementBackground} />
           }

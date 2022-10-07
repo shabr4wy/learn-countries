@@ -33,7 +33,7 @@ export function CountriesList({
                 className="countryItem"
                 style={{ background: toggleElementBackground() }}
               >
-                <Link to={`/${country.cca2}`}>
+                <Link to={`/learn-countries/${country.cca2}`}>
                   <div className="countriesList__countryFlag">
                     <img
                       src={country.flags.svg}
