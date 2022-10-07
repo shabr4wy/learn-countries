@@ -5,7 +5,7 @@ import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
 
-export function Country() {
+export function Country({ toggleElementBackground }) {
   const [countryData, setCountryData] = useState("");
 
   let params = useParams();
@@ -25,7 +25,11 @@ export function Country() {
 
   return (
     <main className="countryPage main">
-      <Link className="countryPage__backToSearch" to="/learn-countries">
+      <Link
+        className="countryPage__backToSearch"
+        to="/learn-countries"
+        style={{ background: toggleElementBackground() }}
+      >
         ← search page
       </Link>
       {countryData && (
@@ -42,7 +46,10 @@ export function Country() {
             <p className="countryPage__name">{countryData.name.common}</p>
             <CountryGeogeapghy countryData={countryData} />
             <CountryLife countryData={countryData} />
-            <BorderCountries countryData={countryData} />
+            <BorderCountries
+              countryData={countryData}
+              toggleElementBackground={toggleElementBackground}
+            />
           </div>
         </div>
       )}

@@ -1,8 +1,14 @@
-export function RegionMenu({ selectedRegion, handleChange }) {
+export function RegionMenu({
+  theme,
+  handleChange,
+  selectedRegion,
+  toggleElementBackground,
+}) {
   return (
     //region menu
     <section className="regionMenu">
       <select
+        style={{ background: toggleElementBackground() }}
         value={selectedRegion ? selectedRegion : "selectRegion"}
         onChange={(e) => handleChange(e.target.value)}
       >
@@ -15,6 +21,7 @@ export function RegionMenu({ selectedRegion, handleChange }) {
       </select>
 
       <svg
+        style={{ fill: theme === "light" ? "hsl(200, 15%, 8%)" : "white" }}
         className="regionMenu__icon"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 320 512"

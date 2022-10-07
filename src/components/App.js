@@ -86,7 +86,10 @@ function App() {
 
   return (
     <div className="app">
-      <Header handleClick={handleClick} />
+      <Header
+        handleClick={handleClick}
+        toggleElementBackground={toggleElementBackground}
+      />
       <Routes>
         <Route
           exact
@@ -96,20 +99,28 @@ function App() {
               <SearchCountry
                 setCountries={setCountries}
                 setIsCountryFounded={setIsCountryFounded}
+                toggleElementBackground={toggleElementBackground}
               />
               <RegionMenu
                 selectedRegion={selectedRegion}
                 handleChange={handleChange}
+                toggleElementBackground={toggleElementBackground}
               />
               <CountriesList
                 isCountryFounded={isCountryFounded}
                 countries={countries}
                 selectedRegion={selectedRegion}
+                toggleElementBackground={toggleElementBackground}
               />
             </main>
           }
         />
-        <Route path=":countryCode" element={<Country />} />
+        <Route
+          path=":countryCode"
+          element={
+            <Country toggleElementBackground={toggleElementBackground} />
+          }
+        />
       </Routes>
     </div>
   );

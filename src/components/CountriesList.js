@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
+export function CountriesList({
+  countries,
+  selectedRegion,
+  isCountryFounded,
+  toggleElementBackground,
+}) {
   const countriesFromSessionStorage = JSON.parse(
     window.sessionStorage.getItem("countries")
   );
@@ -23,7 +28,11 @@ export function CountriesList({ countries, selectedRegion, isCountryFounded }) {
         <ul className="countriesList">
           {countriesToRender &&
             countriesToRender.map((country) => (
-              <li key={country.name.common} className="countryItem">
+              <li
+                key={country.name.common}
+                className="countryItem"
+                style={{ background: toggleElementBackground() }}
+              >
                 <Link to={`/${country.cca2}`}>
                   <div className="countriesList__countryFlag">
                     <img
