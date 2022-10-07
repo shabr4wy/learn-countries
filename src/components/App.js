@@ -49,10 +49,6 @@ function App() {
     return theme === "light" ? lightColorMode : darkColorMode;
   };
 
-  const handleChange = (value) => {
-    setSelectedRegion(value);
-  };
-
   // fetch countries data
   useEffect(() => {
     const controller = new AbortController();
@@ -105,7 +101,7 @@ function App() {
               />
               <RegionMenu
                 selectedRegion={selectedRegion}
-                handleChange={handleChange}
+                setSelectedRegion={setSelectedRegion}
                 toggleSvgFill={toggleSvgFill}
                 toggleElementBackground={toggleElementBackground}
               />

@@ -1,10 +1,13 @@
 export function RegionMenu({
-  theme,
-  handleChange,
+  setSelectedRegion,
   selectedRegion,
   toggleSvgFill,
   toggleElementBackground,
 }) {
+  const handleChange = (value) => {
+    setSelectedRegion(value);
+  };
+
   return (
     //region menu
     <section className="regionMenu">
