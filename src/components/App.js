@@ -19,7 +19,7 @@ function App() {
   // initialize the app with the preferred theme
   if (preferredTheme === "light") {
     document.body.style.cssText =
-      "background-color: hsl(0, 0%, 98%); color: hsl(200, 15%, 8%)";
+      "background-color: hsl(0, 0%, 97%); color: hsl(200, 15%, 8%)";
 
     // no 'else' statement as the default theme is dark.
   }
@@ -37,7 +37,7 @@ function App() {
       setTheme("light");
       localStorage.setItem("theme", "light");
       document.body.style.cssText =
-        "background-color: hsl(0, 0%, 98%); color: hsl(200, 15%, 8%)";
+        "background-color: hsl(0, 0%, 97%); color: hsl(200, 15%, 8%)";
     }
   };
 
