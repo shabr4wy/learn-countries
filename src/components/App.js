@@ -105,6 +105,7 @@ function App() {
               <RegionMenu
                 selectedRegion={selectedRegion}
                 handleChange={handleChange}
+                toggleSvgFill={toggleSvgFill}
                 toggleElementBackground={toggleElementBackground}
               />
               <CountriesList

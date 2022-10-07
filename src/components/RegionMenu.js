@@ -2,6 +2,7 @@ export function RegionMenu({
   theme,
   handleChange,
   selectedRegion,
+  toggleSvgFill,
   toggleElementBackground,
 }) {
   return (
@@ -21,7 +22,7 @@ export function RegionMenu({
       </select>
 
       <svg
-        style={{ fill: theme === "light" ? "hsl(200, 15%, 8%)" : "white" }}
+        style={{ fill: toggleSvgFill("hsl(209, 23%, 22%)", "white") }}
         className="regionMenu__icon"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 320 512"
