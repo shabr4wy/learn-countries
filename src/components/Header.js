@@ -1,4 +1,4 @@
-export function Header() {
+export function Header({ handleClick }) {
   return (
     <header className="header">
       <div className="header__title">
@@ -6,7 +6,7 @@ export function Header() {
       </div>
 
       <div className="header__theme">
-        <button className="header__theme__switch">
+        <button className="header__theme__switch" onClick={() => handleClick()}>
           <svg
             className="header__theme__icon"
             xmlns="http://www.w3.org/2000/svg"

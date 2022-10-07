@@ -13,6 +13,34 @@ function App() {
   // to inform user if no country founded
   const [isCountryFounded, setIsCountryFounded] = useState(true);
 
+  const preferredTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(preferredTheme);
+
+  // initialize the app with the preferred theme
+  if (preferredTheme === "light") {
+    document.body.style.cssText =
+      "background-color: hsl(0, 0%, 98%); color: hsl(200, 15%, 8%)";
+
+    // no 'else' statement as the default theme is dark.
+  }
+
+  // cahnge theme
+  const handleClick = () => {
+    // switch to dark theme
+    if (theme === "light") {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+      document.body.style.cssText =
+        "background-color: hsl(207, 26%, 17%); color: white";
+    } else {
+      // switch to light theme
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+      document.body.style.cssText =
+        "background-color: hsl(0, 0%, 98%); color: hsl(200, 15%, 8%)";
+    }
+  };
+
   const handleChange = (value) => {
     setSelectedRegion(value);
   };
@@ -50,7 +78,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header handleClick={handleClick} />
       <Routes>
         <Route
           exact
