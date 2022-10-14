@@ -1,5 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
-import debounce from "lodash.debounce";
+import { useState, useEffect } from "react";
 
 export function SearchCountry({
   setCountries,
@@ -9,16 +8,9 @@ export function SearchCountry({
 }) {
   const [searchedCountry, setSearchedCountry] = useState("");
 
-  const handleChange = (event) => {
-    setSearchedCountry(event.target.value);
+  const handleChange = (value) => {
+    setSearchedCountry(value);
   };
-
-  // debounce search input
-  // you don't know what is debouncing? check the following article:
-  // https://css-tricks.com/debouncing-throttling-explained-examples/
-  // how to debounce? check the following article:
-  // https://dmitripavlutin.com/react-throttle-debounce/
-  const debounceHandleChange = useMemo(() => debounce(handleChange, 200), []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -76,7 +68,8 @@ export function SearchCountry({
 
       <input
         className="search__input"
-        onChange={debounceHandleChange}
+        value={searchedCountry}
+        onChange={(e) => handleChange(e.target.value)}
         placeholder="search for a country..."
         style={{ background: toggleElementBackground() }}
       ></input>
