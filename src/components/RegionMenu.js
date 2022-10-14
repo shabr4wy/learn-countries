@@ -13,7 +13,7 @@ export function RegionMenu({
     <section className="regionMenu">
       <select
         style={{ background: toggleElementBackground() }}
-        value={selectedRegion ? selectedRegion : "selectRegion"}
+        value={selectedRegion}
         onChange={(e) => handleChange(e.target.value)}
       >
         <option value="selectRegion">select Region</option>
