@@ -55,7 +55,11 @@ function App() {
     const { signal } = controller;
 
     const getCountries = async () => {
-      if (selectedRegion) {
+      if (selectedRegion === "selectRegion") {
+        setCountries("");
+        // sync session storge
+        window.sessionStorage.removeItem("countries");
+      } else if (selectedRegion) {
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
           signal,
         })
