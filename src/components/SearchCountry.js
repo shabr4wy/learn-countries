@@ -1,56 +1,14 @@
 import { useState, useEffect } from "react";
 
 export function SearchCountry({
-  setCountries,
-  setIsCountryFounded,
+  setSearchedCountry,
+  searchedCountry,
   toggleSvgFill,
   toggleElementBackground,
 }) {
   const handleChange = (value) => {
     setSearchedCountry(value);
   };
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-
-    if (searchedCountry) {
-      async function getCountry() {
-        await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`, {
-          signal,
-        })
-          .then((res) => {
-            setIsCountryFounded(true);
-            return res.json();
-          })
-          .then((searchResult) => {
-            setCountries([...searchResult]);
-
-            // make session storage the source of truth of countries
-            window.sessionStorage.setItem(
-              "countries",
-              JSON.stringify([...searchResult])
-            );
-          })
-          .catch(() => {
-            // to not run catch if user deletes his input
-            // doing so insures that the catch will only run if user introduced invalid input
-            if (signal.aborted === false) {
-              setIsCountryFounded(false);
-            }
-          });
-      }
-      getCountry();
-    } else {
-      setCountries("");
-
-      // prevent showing "no country founded" as the text input is already empty
-      setIsCountryFounded(true);
-    }
-
-    // clean up effect
-    return () => controller.abort();
-  }, [searchedCountry, setCountries, setIsCountryFounded]);
 
   return (
     <section className="search">

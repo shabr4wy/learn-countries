@@ -85,6 +85,49 @@ function App() {
     return () => controller.abort();
   }, [selectedRegion]);
 
+  // get input result
+  useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    if (searchedCountry) {
+      async function getCountry() {
+        await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`, {
+          signal,
+        })
+          .then((res) => {
+            setIsCountryFounded(true);
+            return res.json();
+          })
+          .then((searchResult) => {
+            setCountries([...searchResult]);
+
+            // make session storage the source of truth of countries
+            window.sessionStorage.setItem(
+              "countries",
+              JSON.stringify([...searchResult])
+            );
+          })
+          .catch(() => {
+            // to not run catch if user deletes his input
+            // doing so insures that the catch will only run if user introduced invalid input
+            if (signal.aborted === false) {
+              setIsCountryFounded(false);
+            }
+          });
+      }
+      getCountry();
+    } else {
+      setCountries("");
+
+      // prevent showing "no country founded" as the text input is already empty
+      setIsCountryFounded(true);
+    }
+
+    // clean up effect
+    return () => controller.abort();
+  }, [searchedCountry]);
+
   return (
     <div className="app">
       <Header
@@ -99,9 +142,9 @@ function App() {
           element={
             <main className="countriesSearchPage main">
               <SearchCountry
-                setCountries={setCountries}
+                setSearchedCountry={setSearchedCountry}
+                searchedCountry={searchedCountry}
                 toggleSvgFill={toggleSvgFill}
-                setIsCountryFounded={setIsCountryFounded}
                 toggleElementBackground={toggleElementBackground}
               />
               <RegionMenu
