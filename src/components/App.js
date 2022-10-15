@@ -9,6 +9,7 @@ import { Header } from "./Header";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [searchedCountry, setSearchedCountry] = useState("");
   const [countries, setCountries] = useState("");
   // to inform user if no country founded
   const [isCountryFounded, setIsCountryFounded] = useState(true);

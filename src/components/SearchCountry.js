@@ -6,8 +6,6 @@ export function SearchCountry({
   toggleSvgFill,
   toggleElementBackground,
 }) {
-  const [searchedCountry, setSearchedCountry] = useState("");
-
   const handleChange = (value) => {
     setSearchedCountry(value);
   };
