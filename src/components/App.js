@@ -58,8 +58,6 @@ function App() {
     const getCountries = async () => {
       if (selectedRegion === "selectRegion") {
         setCountries("");
-        // sync session storge
-        window.sessionStorage.removeItem("countries");
       } else if (selectedRegion) {
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
           signal,
@@ -72,10 +70,6 @@ function App() {
           })
           .then((regionCountries) => {
             setCountries([...regionCountries]);
-            window.sessionStorage.setItem(
-              "countries",
-              JSON.stringify([...regionCountries])
-            );
           });
       }
     };
@@ -101,12 +95,6 @@ function App() {
           })
           .then((searchResult) => {
             setCountries([...searchResult]);
-
-            // make session storage the source of truth of countries
-            window.sessionStorage.setItem(
-              "countries",
-              JSON.stringify([...searchResult])
-            );
           })
           .catch(() => {
             // to not run catch if user deletes his input

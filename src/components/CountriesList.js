@@ -2,34 +2,16 @@ import { Link } from "react-router-dom";
 
 export function CountriesList({
   countries,
-  selectedRegion,
   isCountryFounded,
   toggleElementBackground,
 }) {
-  const countriesFromSessionStorage = JSON.parse(
-    window.sessionStorage.getItem("countries")
-  );
-
-  // check if the user navigated back from country page.
-  // hint: select element preserve its state even when user
-  // navigates between country and search page.
-  let countriesToRender;
-  if (selectedRegion && countriesFromSessionStorage) {
-    countriesToRender = [...countriesFromSessionStorage];
-  } else {
-    // to render the result of search inputs if no region was selected.
-    countriesToRender = countries;
-    // empty setorage to prevent rendering the past search result.
-    window.sessionStorage.removeItem("countries");
-  }
-
   return (
     // countries list
     <section>
       {isCountryFounded ? (
         <ul className="countriesList">
-          {countriesToRender &&
-            countriesToRender.map((country) => (
+          {countries &&
+            countries.map((country) => (
               <li
                 key={country.name.common}
                 className="countryItem"
