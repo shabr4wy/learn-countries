@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function CountriesList({
-  countries,
-  isCountryFounded,
-  toggleElementBackground,
-}) {
+export function CountriesList({ countries, toggleElementBackground }) {
   let dataToRender = countries[0]?.data;
   return (
     // countries list

@@ -11,8 +11,6 @@ function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchedCountry, setSearchedCountry] = useState("");
   const [countries, setCountries] = useState([]);
-  // to inform user if no country founded
-  const [isCountryFounded, setIsCountryFounded] = useState(true);
 
   const preferredTheme = localStorage.getItem("theme");
   const [theme, setTheme] = useState(preferredTheme);
@@ -73,9 +71,6 @@ function App() {
           signal,
         })
           .then((res) => {
-            // to be able to show search results
-            setIsCountryFounded(true);
-
             return res.json();
           })
           .then((regionCountries) => {
@@ -100,26 +95,15 @@ function App() {
           signal,
         })
           .then((res) => {
-            setIsCountryFounded(true);
             return res.json();
           })
           .then((searchResult) => {
             updateSearchResult("input", searchResult);
-          })
-          .catch(() => {
-            // to not run catch if user deletes his input
-            // doing so insures that the catch will only run if user introduced invalid input
-            if (signal.aborted === false) {
-              setIsCountryFounded(false);
-            }
           });
       }
       getCountry();
     } else {
       deleteSearchResult("select");
-
-      // prevent showing "no country founded" as the text input is already empty
-      setIsCountryFounded(true);
     }
 
     // clean up effect
@@ -152,7 +136,6 @@ function App() {
                 toggleElementBackground={toggleElementBackground}
               />
               <CountriesList
-                isCountryFounded={isCountryFounded}
                 countries={countries}
                 selectedRegion={selectedRegion}
                 toggleElementBackground={toggleElementBackground}
