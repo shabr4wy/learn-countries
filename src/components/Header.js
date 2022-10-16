@@ -1,4 +1,60 @@
+import { useEffect, useState } from "react";
+
 export function Header() {
+  const preferredTheme = window.localStorage.getItem("theme");
+  const [theme, setTheme] = useState(preferredTheme);
+
+  const handleClick = () => {
+    setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
+    window.localStorage.setItem(
+      "theme",
+      preferredTheme === "light" ? "dark" : "light"
+    );
+  };
+
+  const swithMode = (
+    appBackground,
+    elementBackground,
+    textColor,
+    iconFill,
+    searchIconFill
+  ) => {
+    document.documentElement.style.setProperty(
+      "--appBackground",
+      appBackground
+    );
+    document.documentElement.style.setProperty(
+      "--elementBackground",
+      elementBackground
+    );
+    document.documentElement.style.setProperty("--textColor", textColor);
+    document.documentElement.style.setProperty("--iconFill", iconFill);
+    document.documentElement.style.setProperty(
+      "--searchIconFill",
+      searchIconFill
+    );
+  };
+
+  useEffect(() => {
+    if (theme === "light") {
+      swithMode(
+        "hsl(0, 0%, 97%)",
+        "hsl(0, 0%, 100%)",
+        "hsl(200, 15%, 8%)",
+        "black",
+        "hsl(0, 0%, 52%)"
+      );
+    } else if (theme === "dark") {
+      swithMode(
+        "hsl(207, 26%, 17%)",
+        " hsl(209, 23%, 22%)",
+        "white",
+        "white",
+        "white"
+      );
+    }
+  }, [theme]);
+
   return (
     <header className="header">
       <div className="header__title">
@@ -6,7 +62,7 @@ export function Header() {
       </div>
 
       <div className="header__theme">
-        <button className="header__theme__switch">
+        <button className="header__theme__switch" onClick={() => handleClick()}>
           <svg
             className="header__theme__icon"
             xmlns="http://www.w3.org/2000/svg"
