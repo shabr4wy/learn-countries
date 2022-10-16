@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function CountriesList({ countries, toggleElementBackground }) {
+export function CountriesList({ countries }) {
   let dataToRender = countries[0]?.data;
   return (
     // countries list
@@ -8,11 +8,7 @@ export function CountriesList({ countries, toggleElementBackground }) {
       {countries && dataToRender?.message !== "Not Found" ? (
         <ul className="countriesList">
           {dataToRender?.map((country) => (
-            <li
-              key={country.name.common}
-              className="countryItem"
-              style={{ background: toggleElementBackground() }}
-            >
+            <li key={country.name.common} className="countryItem">
               <Link to={`/learn-countries/${country.cca2}`}>
                 <div className="countriesList__countryFlag">
                   <img

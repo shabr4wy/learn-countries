@@ -1,25 +1,13 @@
-export function Header({
-  handleClick,
-  toggleElementBackground,
-  toggleSvgFill,
-}) {
+export function Header() {
   return (
-    <header
-      className="header"
-      style={{ background: toggleElementBackground() }}
-    >
+    <header className="header">
       <div className="header__title">
         <h2>Search The World</h2>
       </div>
 
       <div className="header__theme">
-        <button
-          className="header__theme__switch"
-          onClick={() => handleClick()}
-          style={{ background: toggleElementBackground() }}
-        >
+        <button className="header__theme__switch">
           <svg
-            style={{ fill: toggleSvgFill("hsl(209, 23%, 22%)", "white") }}
             className="header__theme__icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"

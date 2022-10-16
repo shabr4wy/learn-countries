@@ -1,9 +1,4 @@
-export function RegionMenu({
-  setSelectedRegion,
-  selectedRegion,
-  toggleSvgFill,
-  toggleElementBackground,
-}) {
+export function RegionMenu({ setSelectedRegion, selectedRegion }) {
   const handleChange = (value) => {
     setSelectedRegion(value);
   };
@@ -12,7 +7,6 @@ export function RegionMenu({
     //region menu
     <section className="regionMenu">
       <select
-        style={{ background: toggleElementBackground() }}
         value={selectedRegion}
         onChange={(e) => handleChange(e.target.value)}
       >
@@ -25,7 +19,6 @@ export function RegionMenu({
       </select>
 
       <svg
-        style={{ fill: toggleSvgFill("hsl(209, 23%, 22%)", "white") }}
         className="regionMenu__icon"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 320 512"

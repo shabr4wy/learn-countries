@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export function BorderCountries({ countryData, toggleElementBackground }) {
+export function BorderCountries({ countryData }) {
   const [borderCountries, setBorderCountries] = useState("");
 
   useEffect(() => {
@@ -34,10 +34,7 @@ export function BorderCountries({ countryData, toggleElementBackground }) {
         <ul className="countryPage_bordersList">
           {borderCountries &&
             borderCountries.map((borderCountry) => (
-              <li
-                key={borderCountry.name.common}
-                style={{ background: toggleElementBackground() }}
-              >
+              <li key={borderCountry.name.common}>
                 <Link to={`/learn-countries/${borderCountry.cca2}`}>
                   {borderCountry.name.common}
                 </Link>

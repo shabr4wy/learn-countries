@@ -12,42 +12,6 @@ function App() {
   const [searchedCountry, setSearchedCountry] = useState("");
   const [countries, setCountries] = useState([]);
 
-  const preferredTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(preferredTheme);
-
-  // initialize the app with the preferred theme
-  if (preferredTheme === "light") {
-    document.body.style.cssText =
-      "background-color: hsl(0, 0%, 97%); color: hsl(200, 15%, 8%)";
-
-    // no 'else' statement as the default theme is dark.
-  }
-
-  // toggle theme
-  const handleClick = () => {
-    // switch to dark theme
-    if (theme === "light") {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      document.body.style.cssText =
-        "background-color: hsl(207, 26%, 17%); color: white";
-    } else {
-      // switch to light theme
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-      document.body.style.cssText =
-        "background-color: hsl(0, 0%, 97%); color: hsl(200, 15%, 8%)";
-    }
-  };
-
-  const toggleElementBackground = () => {
-    return theme === "light" ? "white" : "hsl(209, 23%, 22%)";
-  };
-
-  const toggleSvgFill = (lightColorMode, darkColorMode) => {
-    return theme === "light" ? lightColorMode : darkColorMode;
-  };
-
   const updateSearchResult = (id, fetchedData) => {
     setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
   };
@@ -112,11 +76,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header
-        handleClick={handleClick}
-        toggleSvgFill={toggleSvgFill}
-        toggleElementBackground={toggleElementBackground}
-      />
+      <Header />
       <Routes>
         <Route
           exact
@@ -126,29 +86,16 @@ function App() {
               <SearchCountry
                 setSearchedCountry={setSearchedCountry}
                 searchedCountry={searchedCountry}
-                toggleSvgFill={toggleSvgFill}
-                toggleElementBackground={toggleElementBackground}
               />
               <RegionMenu
                 selectedRegion={selectedRegion}
                 setSelectedRegion={setSelectedRegion}
-                toggleSvgFill={toggleSvgFill}
-                toggleElementBackground={toggleElementBackground}
               />
-              <CountriesList
-                countries={countries}
-                selectedRegion={selectedRegion}
-                toggleElementBackground={toggleElementBackground}
-              />
+              <CountriesList countries={countries} />
             </main>
           }
         />
-        <Route
-          path="/learn-countries/:countryCode"
-          element={
-            <Country toggleElementBackground={toggleElementBackground} />
-          }
-        />
+        <Route path="/learn-countries/:countryCode" element={<Country />} />
       </Routes>
     </div>
   );

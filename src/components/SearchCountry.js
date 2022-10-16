@@ -1,9 +1,4 @@
-export function SearchCountry({
-  setSearchedCountry,
-  searchedCountry,
-  toggleSvgFill,
-  toggleElementBackground,
-}) {
+export function SearchCountry({ setSearchedCountry, searchedCountry }) {
   const handleChange = (value) => {
     setSearchedCountry(value);
   };
@@ -11,7 +6,6 @@ export function SearchCountry({
   return (
     <section className="search">
       <svg
-        style={{ fill: toggleSvgFill("hsl(0, 0%, 52%)", "white") }}
         viewBox="0 0 512 512"
         className="search__icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +19,6 @@ export function SearchCountry({
         value={searchedCountry}
         onChange={(e) => handleChange(e.target.value)}
         placeholder="search for a country..."
-        style={{ background: toggleElementBackground() }}
       ></input>
     </section>
   );
