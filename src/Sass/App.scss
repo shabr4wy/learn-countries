@@ -1,8 +1,13 @@
 /* ---base rules--- */
 
 /* variables */ 
-$DarkModeElements : hsl(209, 23%, 22%);
-$DarkModeBackground : hsl(207, 26%, 17%);
+:root {
+    --appBackground: hsl(207, 26%, 17%);
+    --elementBackground: hsl(209, 23%, 22%);
+    --searchIconFill: white;
+    --iconFill: white;
+    --textColor: white;
+}
 
 button,
 input,
@@ -265,8 +270,8 @@ ul {
 /* ---theme--- */
 /* dark mode */ 
 body {
-    background-color: $DarkModeBackground;
-    color: white;
+    background-color: var(--appBackground);
+    color: var(--textColor);
 }
 
 select,
@@ -276,7 +281,7 @@ header,
 .countryItem,
 .countryPage__backToSearch,
 .countryPage_bordersList li {
-    background-color: $DarkModeElements;
+    background-color: var(--elementBackground);
 }
 
 .header {
@@ -285,10 +290,14 @@ header,
     }
 
     &__theme__icon {
-        fill: white;
+        fill: var(--iconFill);
     }
 }
 
 .search__icon {
-    fill: white;
+    fill: var(--searchIconFill);
+}
+
+.regionMenu__icon{
+    fill: var(--iconFill);
 }
