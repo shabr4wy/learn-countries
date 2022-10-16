@@ -50,6 +50,10 @@ function App() {
     return theme === "light" ? lightColorMode : darkColorMode;
   };
 
+  const updateSearchResult = (id, fetchedData) => {
+    setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
+  };
+
   // fetch countries data
   useEffect(() => {
     const controller = new AbortController();
@@ -69,10 +73,7 @@ function App() {
             return res.json();
           })
           .then((regionCountries) => {
-            setCountries((prev) => [
-              { id: "select", data: regionCountries },
-              ...prev,
-            ]);
+            updateSearchResult("select", regionCountries);
           });
       }
     };
@@ -97,10 +98,7 @@ function App() {
             return res.json();
           })
           .then((searchResult) => {
-            setCountries((prev) => [
-              { id: "input", data: searchResult },
-              ...prev,
-            ]);
+            updateSearchResult("input", searchResult);
           })
           .catch(() => {
             // to not run catch if user deletes his input
