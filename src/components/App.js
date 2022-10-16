@@ -10,7 +10,7 @@ import { Header } from "./Header";
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchedCountry, setSearchedCountry] = useState("");
-  const [countries, setCountries] = useState("");
+  const [countries, setCountries] = useState([]);
   // to inform user if no country founded
   const [isCountryFounded, setIsCountryFounded] = useState(true);
 
@@ -54,6 +54,12 @@ function App() {
     setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
   };
 
+  const deleteSearchResult = (id) => {
+    setCountries((prevState) =>
+      prevState.filter((element) => element.id === id)
+    );
+  };
+
   // fetch countries data
   useEffect(() => {
     const controller = new AbortController();
@@ -61,7 +67,7 @@ function App() {
 
     const getCountries = async () => {
       if (selectedRegion === "selectRegion") {
-        setCountries("");
+        deleteSearchResult("input");
       } else if (selectedRegion) {
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
           signal,
@@ -110,7 +116,7 @@ function App() {
       }
       getCountry();
     } else {
-      setCountries("");
+      deleteSearchResult("select");
 
       // prevent showing "no country founded" as the text input is already empty
       setIsCountryFounded(true);
