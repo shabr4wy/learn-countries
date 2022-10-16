@@ -69,7 +69,10 @@ function App() {
             return res.json();
           })
           .then((regionCountries) => {
-            setCountries([...regionCountries]);
+            setCountries((prev) => [
+              { id: "select", data: regionCountries },
+              ...prev,
+            ]);
           });
       }
     };
@@ -94,7 +97,10 @@ function App() {
             return res.json();
           })
           .then((searchResult) => {
-            setCountries([...searchResult]);
+            setCountries((prev) => [
+              { id: "input", data: searchResult },
+              ...prev,
+            ]);
           })
           .catch(() => {
             // to not run catch if user deletes his input
