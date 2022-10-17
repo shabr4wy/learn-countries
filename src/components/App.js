@@ -6,11 +6,14 @@ import { SearchCountry } from "./SearchCountry";
 import { Country } from "./Country";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./Header";
+import { Loader } from "./Loader";
 
 function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchedCountry, setSearchedCountry] = useState("");
   const [countries, setCountries] = useState([]);
+
+  const [loader, setLoader] = useState(false);
 
   const updateSearchResult = (id, fetchedData) => {
     setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
@@ -31,6 +34,7 @@ function App() {
       if (selectedRegion === "selectRegion") {
         deleteSearchResult("input");
       } else if (selectedRegion) {
+        setLoader(true);
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
           signal,
         })
@@ -38,6 +42,7 @@ function App() {
             return res.json();
           })
           .then((regionCountries) => {
+            setLoader(false);
             updateSearchResult("select", regionCountries);
           });
       }
@@ -55,6 +60,7 @@ function App() {
 
     if (searchedCountry) {
       async function getCountry() {
+        setLoader(true);
         await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`, {
           signal,
         })
@@ -62,7 +68,11 @@ function App() {
             return res.json();
           })
           .then((searchResult) => {
+            setLoader(false);
             updateSearchResult("input", searchResult);
+          })
+          .catch(() => {
+            !signal.aborted && setLoader(false);
           });
       }
       getCountry();
@@ -77,6 +87,7 @@ function App() {
   return (
     <div className="app">
       <Header />
+
       <Routes>
         <Route
           exact
@@ -95,8 +106,13 @@ function App() {
             </main>
           }
         />
-        <Route path="/learn-countries/:countryCode" element={<Country />} />
+        <Route
+          path="/learn-countries/:countryCode"
+          element={<Country setLoader={setLoader} />}
+        />
       </Routes>
+
+      {loader && <Loader />}
     </div>
   );
 }

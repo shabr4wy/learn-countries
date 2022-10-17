@@ -5,23 +5,25 @@ import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
 
-export function Country() {
+export function Country({ setLoader }) {
   const [countryData, setCountryData] = useState("");
 
   let params = useParams();
 
   useEffect(() => {
     async function getCountry() {
+      setLoader(true);
       await fetch(`https://restcountries.com/v3.1/alpha/${params.countryCode}`)
         .then((res) => {
           return res.json();
         })
         .then((searchResult) => {
+          setLoader(false);
           setCountryData({ ...searchResult[0] });
         });
     }
     getCountry();
-  }, [params]);
+  }, [params.countryCode, setLoader]);
 
   return (
     <main className="countryPage main">
