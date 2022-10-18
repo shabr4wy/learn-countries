@@ -313,3 +313,9 @@ header,
 .regionMenu__icon{
     fill: var(--iconFill);
 }
+
+.loader__icon {
+    circle {
+        stroke: var(--iconFill);
+    }
+}
