@@ -34,6 +34,5 @@ export const Loader = (props) => (
         />
       </circle>
     </svg>
-    <span>loading... </span>
   </div>
 );
