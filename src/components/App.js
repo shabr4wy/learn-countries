@@ -33,6 +33,7 @@ function App() {
     const getCountries = async () => {
       if (selectedRegion === "selectRegion") {
         deleteSearchResult("input");
+        setLoader(false);
       } else if (selectedRegion) {
         setLoader(true);
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
@@ -78,6 +79,7 @@ function App() {
       getCountry();
     } else {
       deleteSearchResult("select");
+      setLoader(false);
     }
 
     // clean up effect
