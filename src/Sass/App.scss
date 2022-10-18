@@ -200,6 +200,18 @@ ul {
     }
 }
 
+.loaderContainer {
+    position: fixed;
+    top: 180px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    .loader__icon{
+        max-width: 110px;
+    }
+}
+
 /* desktop */
 @media (min-width : 1440px) {
     .header,
