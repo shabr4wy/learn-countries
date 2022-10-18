@@ -276,6 +276,12 @@ ul {
             margin: 0;
         }
     }
+
+    .loaderContainer {
+        .loader__icon {
+            max-width: 150px;
+        }
+    }
 }
 
 
