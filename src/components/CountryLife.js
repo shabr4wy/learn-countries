@@ -18,6 +18,10 @@ export function CountryLife({ countryData }) {
         <span className="countryDataLabel">Currencies:</span> {getCurrency()}
       </li>
       <li>
+        <span className="countryDataLabel">Start Of The Week: </span>
+        {countryData?.startOfWeek}
+      </li>
+      <li>
         <span className="countryDataLabel">Car Side:</span>{" "}
         {countryData.car.side}
       </li>
