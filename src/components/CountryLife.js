@@ -1,7 +1,17 @@
 export function CountryLife({ countryData }) {
   function getCurrency() {
     let currencies = { ...countryData.currencies };
-    return Object.values(currencies)[0].name;
+    const values = Object.values(currencies);
+
+    return (
+      <ol className="countryPage__currencies">
+        {values?.map((currency) => (
+          <li key={currency.name}>
+            {currency.name} - {currency.symbol}
+          </li>
+        ))}
+      </ol>
+    );
   }
 
   function getLanguages() {
