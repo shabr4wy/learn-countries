@@ -170,7 +170,7 @@ ul {
 .countryPage {
     line-height: 2.4;
 
-    ul {
+    ul:not(.countryPage__currencies) {
         margin-bottom: 40px;
     }
 
