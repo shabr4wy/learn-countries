@@ -177,6 +177,17 @@ ul {
     &__name {
         font-weight: 800;
         font-size: 2em;
+        margin-right: 10px;
+    }
+
+    &__nameAndMap {
+        display: flex;
+        align-items: center;
+
+        .countryPage__locationLink {
+            border: solid;
+            flex: 0 0 18px;
+        }
     }
 
     &__bordersLabel {
