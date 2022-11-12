@@ -36,23 +36,33 @@ export function Header() {
   };
 
   useEffect(() => {
-    if (theme === "light") {
-      swithMode(
-        "hsl(0, 0%, 97%)",
-        "hsl(0, 0%, 100%)",
-        "hsl(200, 15%, 8%)",
-        "black",
-        "hsl(0, 0%, 52%)"
-      );
-    } else if (theme === "dark") {
-      swithMode(
-        "hsl(207, 26%, 17%)",
-        " hsl(209, 23%, 22%)",
-        "white",
-        "white",
-        "white"
-      );
+    let mounted = true;
+
+    if (mounted) {
+      console.log("mounted");
+      if (theme === "light") {
+        swithMode(
+          "hsl(0, 0%, 97%)",
+          "hsl(0, 0%, 100%)",
+          "hsl(200, 15%, 8%)",
+          "black",
+          "hsl(0, 0%, 52%)"
+        );
+      } else if (theme === "dark") {
+        swithMode(
+          "hsl(207, 26%, 17%)",
+          "hsl(209, 23%, 22%)",
+          "white",
+          "white",
+          "white"
+        );
+      }
     }
+
+    return () => {
+      mounted = false;
+      console.log("unmounted");
+    };
   }, [theme]);
 
   return (
