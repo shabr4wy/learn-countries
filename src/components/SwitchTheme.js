@@ -63,7 +63,6 @@ export function SwitchTheme() {
 
     return () => {
       mounted = false;
-      console.log("unmounted");
     };
   }, [theme]);
 
