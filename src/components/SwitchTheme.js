@@ -41,7 +41,6 @@ export function SwitchTheme() {
     let mounted = true;
 
     if (mounted) {
-      console.log("mounted");
       if (theme === "light") {
         swithMode(
           "hsl(0, 0%, 97%)",
@@ -63,7 +62,6 @@ export function SwitchTheme() {
 
     return () => {
       mounted = false;
-      console.log("unmounted");
     };
   }, [theme]);
 
