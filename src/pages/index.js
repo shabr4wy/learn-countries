@@ -7,7 +7,6 @@ import { CountriesList } from "./CountriesList";
 import { RegionMenu } from "./RegionMenu";
 import { SearchCountry } from "./SearchCountry";
 import { Country } from "./Country";
-import { Route, Routes } from "react-router-dom";
 import { Header } from "./Header";
 import { Loader } from "./Loader";
 
@@ -90,35 +89,23 @@ function index() {
   }, [searchedCountry]);
 
   return (
-    <div className="app">
+    <>
       <Header />
-
-      <Routes>
-        <Route
-          exact
-          path="/learn-countries"
-          element={
-            <main className="countriesSearchPage main">
-              <SearchCountry
-                setSearchedCountry={setSearchedCountry}
-                searchedCountry={searchedCountry}
-              />
-              <RegionMenu
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-              />
-              <CountriesList countries={countries} />
-            </main>
-          }
+      <main className="countriesSearchPage main">
+        <SearchCountry
+          setSearchedCountry={setSearchedCountry}
+          searchedCountry={searchedCountry}
         />
-        <Route
-          path="/learn-countries/:countryCode"
-          element={<Country setLoader={setLoader} />}
+        <RegionMenu
+          selectedRegion={selectedRegion}
+          setSelectedRegion={setSelectedRegion}
         />
-      </Routes>
+        <CountriesList countries={countries} />
+      </main>
 
+      {<Country setLoader={setLoader} />}
       {loader && <Loader />}
-    </div>
+    </>
   );
 }
 
