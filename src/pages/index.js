@@ -3,9 +3,9 @@
 // /** @format */
 
 import { useState, useEffect } from "react";
-import { RegionMenu } from "./RegionMenu";
-import { SearchCountry } from "./SearchCountry";
-import { Header } from "./Header";
+import { RegionMenu } from "../components/RegionMenu";
+import { SearchCountry } from "../components/SearchCountry";
+import { Header } from "../components/Header";
 
 function index() {
   const [selectedRegion, setSelectedRegion] = useState("");
