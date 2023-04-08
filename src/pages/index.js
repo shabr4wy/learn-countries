@@ -3,7 +3,6 @@
 // /** @format */
 
 import { useState, useEffect } from "react";
-import { CountriesList } from "./CountriesList";
 import { RegionMenu } from "./RegionMenu";
 import { SearchCountry } from "./SearchCountry";
 import { Header } from "./Header";
@@ -11,7 +10,6 @@ import { Header } from "./Header";
 function index() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchedCountry, setSearchedCountry] = useState("");
-  const [countries, setCountries] = useState([]);
 
   const updateSearchResult = (id, fetchedData) => {
     setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
@@ -90,7 +88,6 @@ function index() {
           selectedRegion={selectedRegion}
           setSelectedRegion={setSelectedRegion}
         />
-        <CountriesList countries={countries} />
       </main>
     </>
   );
