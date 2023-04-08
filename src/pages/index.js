@@ -6,16 +6,12 @@ import { useState, useEffect } from "react";
 import { CountriesList } from "./CountriesList";
 import { RegionMenu } from "./RegionMenu";
 import { SearchCountry } from "./SearchCountry";
-import { Country } from "./Country";
 import { Header } from "./Header";
-import { Loader } from "./Loader";
 
 function index() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchedCountry, setSearchedCountry] = useState("");
   const [countries, setCountries] = useState([]);
-
-  const [loader, setLoader] = useState(false);
 
   const updateSearchResult = (id, fetchedData) => {
     setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
@@ -35,9 +31,7 @@ function index() {
     const getCountries = async () => {
       if (selectedRegion === "selectRegion") {
         deleteSearchResult("input");
-        setLoader(false);
       } else if (selectedRegion) {
-        setLoader(true);
         await fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`, {
           signal,
         })
@@ -45,7 +39,6 @@ function index() {
             return res.json();
           })
           .then((regionCountries) => {
-            setLoader(false);
             updateSearchResult("select", regionCountries);
           });
       }
@@ -63,7 +56,6 @@ function index() {
 
     if (searchedCountry) {
       async function getCountry() {
-        setLoader(true);
         await fetch(`https://restcountries.com/v3.1/name/${searchedCountry}`, {
           signal,
         })
@@ -71,17 +63,15 @@ function index() {
             return res.json();
           })
           .then((searchResult) => {
-            setLoader(false);
             updateSearchResult("input", searchResult);
           })
           .catch(() => {
-            !signal.aborted && setLoader(false);
+            !signal.aborted;
           });
       }
       getCountry();
     } else {
       deleteSearchResult("select");
-      setLoader(false);
     }
 
     // clean up effect
@@ -102,9 +92,6 @@ function index() {
         />
         <CountriesList countries={countries} />
       </main>
-
-      {<Country setLoader={setLoader} />}
-      {loader && <Loader />}
     </>
   );
 }
