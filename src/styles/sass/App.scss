@@ -253,7 +253,7 @@ ul {
             justify-self: end;
         }
 
-        section:last-child {
+        section:nth-child(3) {
             grid-column: 1/3;
         }
 
