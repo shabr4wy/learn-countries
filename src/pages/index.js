@@ -11,16 +11,6 @@ function index() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchedCountry, setSearchedCountry] = useState("");
 
-  const updateSearchResult = (id, fetchedData) => {
-    setCountries((prev) => [{ id, data: fetchedData }, ...prev]);
-  };
-
-  const deleteSearchResult = (id) => {
-    setCountries((prevState) =>
-      prevState.filter((element) => element.id === id)
-    );
-  };
-
   // fetch countries data
   useEffect(() => {
     const controller = new AbortController();
@@ -60,16 +50,12 @@ function index() {
           .then((res) => {
             return res.json();
           })
-          .then((searchResult) => {
-            updateSearchResult("input", searchResult);
-          })
+          .then((searchResult) => {})
           .catch(() => {
             !signal.aborted;
           });
       }
       getCountry();
-    } else {
-      deleteSearchResult("select");
     }
 
     // clean up effect
