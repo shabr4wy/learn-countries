@@ -3,13 +3,12 @@
 import Link from "next/link";
 
 export function CountriesList({ countries }) {
-  let dataToRender = countries[0]?.data;
   return (
     // countries list
     <section>
-      {countries && dataToRender?.message !== "Not Found" ? (
+      {countries && countries?.message !== "Not Found" ? (
         <ul className="countriesList">
-          {dataToRender?.map((country) => (
+          {countries?.map((country) => (
             <li key={country.name.common} className="countryItem">
               <Link href={`/`}>
                 {
