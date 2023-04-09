@@ -70,10 +70,7 @@ function index() {
           setSearchedCountry={setSearchedCountry}
           searchedCountry={searchedCountry}
         />
-        <RegionMenu
-          selectedRegion={selectedRegion}
-          setSelectedRegion={setSelectedRegion}
-        />
+        <RegionMenu />
       </main>
     </>
   );
