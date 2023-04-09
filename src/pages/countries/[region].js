@@ -1,9 +1,9 @@
 /** @format */
 
-import { Header } from "../components/Header";
-import { CountriesList } from "../components/CountriesList";
-import { SearchCountry } from "../components/SearchCountry";
-import { RegionMenu } from "../components/RegionMenu";
+import { Header } from "../../components/Header";
+import { CountriesList } from "../../components/CountriesList";
+import { SearchCountry } from "../../components/SearchCountry";
+import { RegionMenu } from "../../components/RegionMenu";
 
 export async function getCountriesData(context) {
   const res = await fetch(
