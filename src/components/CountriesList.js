@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+/** @format */
+
+import Link from "next/link";
 
 export function CountriesList({ countries }) {
   let dataToRender = countries[0]?.data;
@@ -9,7 +11,10 @@ export function CountriesList({ countries }) {
         <ul className="countriesList">
           {dataToRender?.map((country) => (
             <li key={country.name.common} className="countryItem">
-              <Link to={`/learn-countries/${country.cca2}`}>
+              <Link href={`/`}>
+                {
+                  // later, create the country page and point to it in href.
+                }
                 <div className="countriesList__countryFlag">
                   <img
                     src={country.flags.svg}
@@ -17,7 +22,6 @@ export function CountriesList({ countries }) {
                     loading="lazy"
                   ></img>
                 </div>
-
                 <ul className="countriesList__countryGeogrpahy">
                   <li>
                     <strong> {country.name.common} </strong>{" "}
