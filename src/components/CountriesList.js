@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 export function CountriesList({ countries }) {
+  console.log(countries);
   return (
     // countries list
     <section>
@@ -10,10 +11,7 @@ export function CountriesList({ countries }) {
         <ul className="countriesList">
           {countries?.map((country) => (
             <li key={country.name.common} className="countryItem">
-              <Link href={`/`}>
-                {
-                  // later, create the country page and point to it in href.
-                }
+              <Link href={`/country/${country.cca2}`}>
                 <div className="countriesList__countryFlag">
                   <img
                     src={country.flags.svg}
