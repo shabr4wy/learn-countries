@@ -1,6 +1,6 @@
 /** @format */
 
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
@@ -8,7 +8,7 @@ import { CountryLife } from "./CountryLife";
 export function Country() {
   return (
     <main className="countryPage main">
-      <Link className="countryPage__backToSearch" to="/learn-countries">
+      <Link className="countryPage__backToSearch" to="/">
         ← search page
       </Link>
       {countryData && (
