@@ -27,3 +27,15 @@ export async function getCountreisCodes() {
 
   return countriesCode;
 }
+
+export async function getBorderCountriesData(countryData) {
+  const res = countryData[0].borders
+    ? await fetch(
+        `https://restcountries.com/v3.1/alpha/?codes=${countryData[0].borders.join()}`
+      )
+    : null;
+
+  const borderCountriesData = res ? await res.json() : null;
+
+  return borderCountriesData;
+}
