@@ -1,7 +1,11 @@
 /** @format */
 
 import { Country } from "../../components/Country";
-import { getCountreisCodes } from "../../modules/countryPage";
+import {
+  getCountryData,
+  getCountreisCodes,
+  getBorderCountriesData,
+} from "../../modules/countryPage";
 
 export async function getStaticPaths() {
   // code is used to fetch country data
@@ -12,6 +16,13 @@ export async function getStaticPaths() {
   });
 
   return { paths, fallback: false };
+}
+
+export async function getStaticProps(context) {
+  const countryData = await getCountryData(context);
+  const borderCountriesData = await getBorderCountriesData(countryData);
+
+  return { props: { countryData, borderCountriesData } };
 }
 
 const CountryPage = ({ countryData, borderCountriesData }) => {
