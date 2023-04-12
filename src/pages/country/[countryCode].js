@@ -1,6 +1,8 @@
 /** @format */
 
 import { Country } from "../../components/Country";
+import { Header } from "../../components/Header";
+
 import {
   getCountryData,
   getCountreisCodes,
@@ -27,10 +29,13 @@ export async function getStaticProps(context) {
 
 const CountryPage = ({ countryData, borderCountriesData }) => {
   return (
-    <Country
-      countryData={countryData[0]}
-      borderCountriesData={borderCountriesData}
-    />
+    <>
+      <Header />
+      <Country
+        countryData={countryData[0]}
+        borderCountriesData={borderCountriesData}
+      />
+    </>
   );
 };
 
