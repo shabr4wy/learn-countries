@@ -5,7 +5,7 @@ import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
 
-export function Country() {
+export function Country({ countryData, borderCountriesData }) {
   return (
     <main className="countryPage main">
       <Link className="countryPage__backToSearch" to="/">
@@ -41,7 +41,7 @@ export function Country() {
             </div>
             <CountryGeogeapghy countryData={countryData} />
             <CountryLife countryData={countryData} />
-            <BorderCountries countryData={countryData} />
+            <BorderCountries borderCountriesData={borderCountriesData} />
           </div>
         </div>
       )}
