@@ -1,6 +1,6 @@
 /** @format */
 
-import { Link } from "next/link";
+import Link from "next/link";
 
 export function BorderCountries({ borderCountriesData }) {
   return (

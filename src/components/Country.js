@@ -1,6 +1,6 @@
 /** @format */
 
-import { Link } from "next/link";
+import Link from "next/link";
 import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
@@ -8,7 +8,7 @@ import { CountryLife } from "./CountryLife";
 export function Country({ countryData, borderCountriesData }) {
   return (
     <main className="countryPage main">
-      <Link className="countryPage__backToSearch" to="/">
+      <Link className="countryPage__backToSearch" href="/">
         ← search page
       </Link>
       {countryData && (
