@@ -25,8 +25,7 @@ a {
 a {
     text-decoration: none;
     display: inline-block;
-    height: 100%;
-    width: 100%;
+    box-sizing: border-box;
 }
 
 div{
@@ -325,6 +324,7 @@ button,
 header,
 .countryItem,
 .countryPage__backToSearch,
+.regionMenu__list li,
 .countryPage_bordersList li {
     background-color: var(--elementBackground);
 }
