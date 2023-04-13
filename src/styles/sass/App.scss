@@ -195,10 +195,11 @@ ul {
     }
 
     &__bordersLabel {
+        display: inline-block;
         font-weight: 800;
         font-size: 1.05em;
     }
-
+    
     &__noBorders {
         font-size: initial;
         font-weight: initial;
