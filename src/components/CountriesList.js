@@ -3,7 +3,6 @@
 import Link from "next/link";
 
 export function CountriesList({ countries }) {
-  console.log(countries);
   return (
     // countries list
     <section>
