@@ -16,7 +16,6 @@ body {
 
 button,
 input,
-select,
 a {
     font-family: "Nunito Sans", sans-serif;
     color: inherit;
@@ -96,33 +95,19 @@ ul {
     }
 }
 
-.regionMenu {
+.regionMenu__list {
+    line-height: 2.4;
+    display: flex;
+    flex-flow: row wrap;
 
-    position: relative;
-    display: inline-block;
-
-    select {
-        width: 200px;
-        height: 45px;
-        padding: 0 16px;
-        border: none;
+    li {
         border-radius: 5px;
-        font-size: inherit;
+        margin: 0 10px 0 0;
 
-        // to add custom arrow icon
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+        a {
+            padding: 0 20px;
+        }
     }
-
-    &__icon {
-        height: 14px;
-        fill: white;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-    }
-
 }
 
 .noSearchResult {
@@ -243,10 +228,6 @@ ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
 
-        section {
-            margin: 20px 0;
-        }
-
         .search {
             justify-self: start;
             width: 500px;
@@ -254,6 +235,11 @@ ul {
 
         .regionMenu {
             justify-self: end;
+            align-self: center;
+        }
+
+        .regionMenu__list {
+            margin: 0;
         }
 
         section:nth-child(3) {
@@ -306,8 +292,7 @@ ul {
 
 
 /* ---state--- */
-.header__theme__switch,
-.regionMenu select{
+.header__theme__switch{
     cursor: pointer;
 }
 
@@ -318,7 +303,6 @@ body {
     color: var(--textColor);
 }
 
-select,
 input,
 button,
 header,
@@ -341,10 +325,6 @@ header,
 
 .search__icon {
     fill: var(--searchIconFill);
-}
-
-.regionMenu__icon{
-    fill: var(--iconFill);
 }
 
 .countryPage__locationIcon {
