@@ -1,13 +1,15 @@
+/** @format */
+
 export function CountryLife({ countryData }) {
   function getCurrency() {
-    let currencies = { ...countryData.currencies };
+    let currencies = { ...countryData?.currencies };
     const values = Object.values(currencies);
 
     return (
       <ol className="countryPage__currencies">
         {values?.map((currency) => (
-          <li key={currency.name}>
-            {currency.name} - {currency.symbol}
+          <li key={currency?.name}>
+            {currency?.name} - {currency?.symbol}
           </li>
         ))}
       </ol>
@@ -15,8 +17,8 @@ export function CountryLife({ countryData }) {
   }
 
   function getLanguages() {
-    let languages = { ...countryData.languages };
-    return Object.values(languages).join(", ");
+    let languages = { ...countryData?.languages };
+    return Object.values(languages)?.join(", ");
   }
 
   return (
@@ -33,7 +35,7 @@ export function CountryLife({ countryData }) {
       </li>
       <li>
         <span className="countryDataLabel">Car Side:</span>{" "}
-        {countryData.car.side}
+        {countryData?.car?.side}
       </li>
     </ul>
   );
