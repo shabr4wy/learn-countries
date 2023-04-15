@@ -1,4 +1,13 @@
-export function SearchCountry({ setSearchedCountry, searchedCountry }) {
+/** @format */
+
+import { useContext } from "react";
+import { searchedCountryContext } from "../pages/_app";
+
+export function SearchCountry() {
+  const { searchedCountry, setSearchedCountry } = useContext(
+    searchedCountryContext
+  );
+
   const handleChange = (value) => {
     setSearchedCountry(value);
   };
