@@ -7,19 +7,19 @@ export function RegionMenu() {
     <section className="regionMenu">
       <ul className="regionMenu__list">
         <li>
-          <Link href="/countries/africa">Africa</Link>
+          <Link href="/region/africa">Africa</Link>
         </li>
         <li>
-          <Link href="/countries/americas">Americas</Link>
+          <Link href="/region/americas">Americas</Link>
         </li>
         <li>
-          <Link href="/countries/asia">Asia</Link>
+          <Link href="/region/asia">Asia</Link>
         </li>
         <li>
-          <Link href="/countries/europe">Europe</Link>
+          <Link href="/region/europe">Europe</Link>
         </li>
         <li>
-          <Link href="/countries/oceania">Oceania</Link>
+          <Link href="/region/oceania">Oceania</Link>
         </li>
       </ul>
     </section>
