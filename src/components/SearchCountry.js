@@ -1,12 +1,24 @@
 /** @format */
 
 import { useContext } from "react";
+import useSWR from "swr";
 import { searchedCountryContext } from "../pages/_app";
 
 export function SearchCountry() {
   const { searchedCountry, setSearchedCountry } = useContext(
     searchedCountryContext
   );
+
+  const getSearchResult = async () => {
+    const res = await fetch(
+      `https://restcountries.com/v3.1/name/${searchedCountry}?fields=name,flags`
+    );
+    const data = await res.json();
+
+    return data;
+  };
+
+  const { data } = useSWR("searchResult", getSearchResult);
 
   const handleChange = (value) => {
     setSearchedCountry(value);
