@@ -29,9 +29,12 @@ export async function getCountreisCodes() {
 }
 
 export function getBorderCountriesData(countryData) {
-  const borderCountriesData = fetch(
-    `https://restcountries.com/v3.1/alpha/?codes=${countryData.borders.join()}`
-  ).then((res) => res.json());
+  const borderCountriesData =
+    countryData.borders.length > 0
+      ? fetch(
+          `https://restcountries.com/v3.1/alpha/?codes=${countryData.borders.join()}`
+        ).then((res) => res.json())
+      : null;
 
-  return !borderCountriesData.status == 400 ? borderCountriesData : null;
+  return borderCountriesData;
 }
