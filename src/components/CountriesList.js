@@ -9,18 +9,18 @@ export function CountriesList({ countries }) {
       {countries && countries?.message !== "Not Found" ? (
         <ul className="countriesList">
           {countries?.map((country) => (
-            <li key={country.name.common} className="countryItem">
+            <li key={country.name?.common} className="countryItem">
               <Link href={`/country/${country.cca2}`}>
                 <div className="countriesList__countryFlag">
                   <img
-                    src={country.flags.svg}
-                    alt={country.name.common + " flag"}
+                    src={country.flags?.svg}
+                    alt={country.name?.common + " flag"}
                     loading="lazy"
                   ></img>
                 </div>
                 <ul className="countriesList__countryGeogrpahy">
                   <li>
-                    <strong> {country.name.common} </strong>{" "}
+                    <strong> {country.name?.common} </strong>{" "}
                   </li>
                   <li>
                     {" "}
@@ -34,7 +34,7 @@ export function CountriesList({ countries }) {
                   </li>
                   <li>
                     <span className="countryDataLabel">Population: </span>{" "}
-                    {country.population.toLocaleString("en-US")}
+                    {country.population?.toLocaleString("en-US")}
                   </li>
                 </ul>
               </Link>
