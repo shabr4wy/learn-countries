@@ -29,9 +29,9 @@ export async function getCountreisCodes() {
 }
 
 export async function getBorderCountriesData(countryData) {
-  const res = countryData[0].borders
+  const res = countryData.borders
     ? await fetch(
-        `https://restcountries.com/v3.1/alpha/?codes=${countryData[0].borders.join()}`
+        `https://restcountries.com/v3.1/alpha/?codes=${countryData.borders.join()}`
       )
     : null;
 

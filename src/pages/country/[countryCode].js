@@ -32,7 +32,7 @@ const CountryPage = ({ countryData, borderCountriesData }) => {
     <>
       <Header />
       <Country
-        countryData={countryData[0]}
+        countryData={countryData}
         borderCountriesData={borderCountriesData}
       />
     </>
