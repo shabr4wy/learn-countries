@@ -7,7 +7,7 @@ import { RegionMenu } from "../../components/RegionMenu";
 
 export async function getCountriesData(context) {
   const res = await fetch(
-    `https://restcountries.com/v3.1/region/${context.params.region}`
+    `https://restcountries.com/v3.1/region/${context.params.region}?fields=name,flags,population,region,capital,cca2`
   );
   const regionCountries = await res.json();
 
