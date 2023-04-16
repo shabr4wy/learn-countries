@@ -11,14 +11,13 @@ export function SearchCountry() {
 
   const getSearchResult = async () => {
     const res = await fetch(
-      `https://restcountries.com/v3.1/name/${searchedCountry}?fields=name,flags`
+      `https://restcountries.com/v3.1/name/${searchedCountry}?fields=name,flags,capital`
     );
     const data = await res.json();
-
     return data;
   };
 
-  const { data } = useSWR("searchResult", getSearchResult);
+  const { data } = useSWR(searchedCountry && "searchResult", getSearchResult);
 
   const handleChange = (value) => {
     setSearchedCountry(value);
