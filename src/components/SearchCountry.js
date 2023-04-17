@@ -11,7 +11,7 @@ export function SearchCountry() {
 
   const getSearchResult = async () => {
     const res = await fetch(
-      `https://restcountries.com/v3.1/name/${searchedCountry}?fields=name,flags,capital`
+      `https://restcountries.com/v3.1/name/${searchedCountry}?fields=name,flags,capital,cca2`
     );
     const data = await res.json();
     return data;
