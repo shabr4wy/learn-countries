@@ -3,8 +3,6 @@
 import { useContext } from "react";
 import { CountriesList } from "../components/CountriesList";
 import { Header } from "../components/Header";
-import { RegionMenu } from "../components/RegionMenu";
-import { SearchCountry } from "../components/SearchCountry";
 import { searchedCountryContext } from "./_app";
 import useSWR from "swr";
 
@@ -25,8 +23,6 @@ const SearchResult = () => {
     <>
       <Header />
       <main className="countriesSearchPage main">
-        <SearchCountry />
-        <RegionMenu />
         <CountriesList countries={data} />
       </main>
     </>
