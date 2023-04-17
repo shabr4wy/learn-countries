@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import useSWR from "swr";
 import { searchedCountryContext } from "../pages/_app";
+import SearchPreview from "./SearchPreview";
 
 export function SearchCountry() {
   const { searchedCountry, setSearchedCountry } = useContext(
@@ -40,6 +41,8 @@ export function SearchCountry() {
         onChange={(e) => handleChange(e.target.value)}
         placeholder="search for a country..."
       ></input>
+
+      <SearchPreview countriesData={data} searchedCountry={searchedCountry} />
     </section>
   );
 }
