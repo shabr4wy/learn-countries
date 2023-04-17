@@ -23,7 +23,7 @@ const SearchResult = () => {
   return (
     <>
       <Header />
-      <main className="countriesSearchPage main">
+      <main className="searchResultPage main">
         <CountriesList countries={data} />
       </main>
     </>
