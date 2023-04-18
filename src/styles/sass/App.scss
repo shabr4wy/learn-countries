@@ -92,6 +92,11 @@ ul {
         border: none;
         border-radius: 5px;
         font-size: inherit;
+
+        &::-webkit-search-cancel-button{
+            -webkit-appearance: none;
+        }
+        
     }
 }
 
