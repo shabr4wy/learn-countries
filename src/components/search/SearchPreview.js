@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useContext } from "react";
-import { searchedCountryContext } from "../pages/_app";
+import { searchedCountryContext } from "../../pages/_app";
 
 /** @format */
 const SearchPreview = ({ countriesData }) => {

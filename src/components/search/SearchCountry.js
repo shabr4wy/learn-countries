@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import useSWR from "swr";
-import { searchedCountryContext } from "../pages/_app";
+import { searchedCountryContext } from "../../pages/_app";
 import SearchPreview from "./SearchPreview";
 import { SearchBar } from "./SearchBar";
 

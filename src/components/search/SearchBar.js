@@ -1,8 +1,8 @@
 /** @format */
 
 import { useContext } from "react";
-import { searchedCountryContext } from "../pages/_app";
-import { Loader } from "./Loader";
+import { searchedCountryContext } from "../../pages/_app";
+import { Loader } from "../Loader";
 
 export function SearchBar({ isLoading }) {
   const { searchedCountry, setSearchedCountry } = useContext(
