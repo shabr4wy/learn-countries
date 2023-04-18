@@ -40,6 +40,7 @@ export function SearchCountry() {
         value={searchedCountry}
         type="search"
         name="q"
+        pattern="^[a-zA-Z]+$"
         onChange={(e) => handleChange(e.target.value)}
         placeholder="search for any country..."
       ></input>
