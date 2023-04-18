@@ -69,7 +69,7 @@ ul {
 .countriesSearchPage {
     margin: 20px 0;
 
-    section {
+    section:not(.search__searchBar, .search__searchPreview) {
         margin: 20px 0;
     }
 }
