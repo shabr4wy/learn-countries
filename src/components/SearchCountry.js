@@ -19,14 +19,13 @@ export function SearchCountry() {
     return data;
   };
 
-  const { data, isLoading } = useSWR(
-    searchedCountry && "searchResult",
-    getSearchResult
-  );
+  const key = searchedCountry
+    ? `searchResult?search=${searchedCountry}`
+    : "searchResult";
 
-  const handleChange = (value) => {
-    setSearchedCountry(value);
-  };
+  const { data, isLoading } = useSWR(searchedCountry && key, getSearchResult);
+
+  const handleChange = (value) => setSearchedCountry(value);
 
   return (
     <section className="search">
