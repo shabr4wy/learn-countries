@@ -38,8 +38,10 @@ export function SearchCountry() {
       <input
         className="search__input"
         value={searchedCountry}
+        type="search"
+        name="q"
         onChange={(e) => handleChange(e.target.value)}
-        placeholder="search for a country..."
+        placeholder="search for any country..."
       ></input>
 
       <SearchPreview countriesData={data} searchedCountry={searchedCountry} />
