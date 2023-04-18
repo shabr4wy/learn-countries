@@ -5,7 +5,7 @@ import Link from "next/link";
 /** @format */
 const SearchPreview = ({ countriesData, searchedCountry }) => {
   return (
-    <section className="search__ResultPreview">
+    <section className="search__searchPreview">
       {countriesData ? (
         <>
           <ul>
