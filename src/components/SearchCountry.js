@@ -19,7 +19,7 @@ export function SearchCountry() {
   };
 
   const { data } = useSWR(searchedCountry && "searchResult", getSearchResult);
-
+  console.log(data);
   const handleChange = (value) => {
     setSearchedCountry(value);
   };
@@ -45,7 +45,10 @@ export function SearchCountry() {
         placeholder="search for any country..."
       ></input>
 
-      <SearchPreview countriesData={data} searchedCountry={searchedCountry} />
+      <SearchPreview
+        countriesData={data?.status == 404 ? false : data}
+        searchedCountry={searchedCountry}
+      />
     </section>
   );
 }
