@@ -1,6 +1,6 @@
 /** @format */
 
-import { Country } from "../../components/Country";
+import { Country } from "../../components/country/Country";
 import { Header } from "../../components/Header";
 
 import {
