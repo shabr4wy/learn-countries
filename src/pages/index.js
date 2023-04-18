@@ -1,6 +1,6 @@
 /** @format */
 import { RegionMenu } from "../components/RegionMenu";
-import { SearchCountry } from "../components/SearchCountry";
+import { SearchCountry } from "../components/search/SearchCountry";
 import { Header } from "../components/Header";
 
 function index() {

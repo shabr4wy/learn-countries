@@ -2,7 +2,7 @@
 
 import { Header } from "../../components/Header";
 import { CountriesList } from "../../components/CountriesList";
-import { SearchCountry } from "../../components/SearchCountry";
+import { SearchCountry } from "../../components/search/SearchCountry";
 import { RegionMenu } from "../../components/RegionMenu";
 
 export async function getCountriesData(context) {
