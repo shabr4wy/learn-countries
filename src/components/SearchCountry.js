@@ -4,7 +4,6 @@ import { useContext } from "react";
 import useSWR from "swr";
 import { searchedCountryContext } from "../pages/_app";
 import SearchPreview from "./SearchPreview";
-import { Loader } from "./Loader";
 import { SearchBar } from "./SearchBar";
 
 export function SearchCountry() {
