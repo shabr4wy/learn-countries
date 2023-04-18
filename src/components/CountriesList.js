@@ -1,26 +1,26 @@
-import { Link } from "react-router-dom";
+/** @format */
+
+import Link from "next/link";
 
 export function CountriesList({ countries }) {
-  let dataToRender = countries[0]?.data;
   return (
     // countries list
     <section>
-      {countries && dataToRender?.message !== "Not Found" ? (
+      {countries && countries?.message !== "Not Found" ? (
         <ul className="countriesList">
-          {dataToRender?.map((country) => (
-            <li key={country.name.common} className="countryItem">
-              <Link to={`/learn-countries/${country.cca2}`}>
+          {countries?.map((country) => (
+            <li key={country.name?.common} className="countryItem">
+              <Link href={`/country/${country.cca2}`}>
                 <div className="countriesList__countryFlag">
                   <img
-                    src={country.flags.svg}
-                    alt={country.name.common + " flag"}
+                    src={country.flags?.svg}
+                    alt={country.name?.common + " flag"}
                     loading="lazy"
                   ></img>
                 </div>
-
                 <ul className="countriesList__countryGeogrpahy">
                   <li>
-                    <strong> {country.name.common} </strong>{" "}
+                    <strong> {country.name?.common} </strong>{" "}
                   </li>
                   <li>
                     {" "}
@@ -34,7 +34,7 @@ export function CountriesList({ countries }) {
                   </li>
                   <li>
                     <span className="countryDataLabel">Population: </span>{" "}
-                    {country.population.toLocaleString("en-US")}
+                    {country.population?.toLocaleString("en-US")}
                   </li>
                 </ul>
               </Link>

@@ -3,7 +3,11 @@
 import { useEffect, useState } from "react";
 
 export function SwitchTheme() {
-  const preferredTheme = window.localStorage.getItem("theme");
+  let preferredTheme = undefined;
+  if (typeof window != "undefined") {
+    preferredTheme = window?.localStorage.getItem("theme");
+  }
+
   const [theme, setTheme] = useState(preferredTheme);
 
   const handleClick = () => {

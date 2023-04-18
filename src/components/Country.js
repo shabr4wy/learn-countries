@@ -1,33 +1,14 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+/** @format */
+
+import Link from "next/link";
 import { BorderCountries } from "./BorderCountries";
 import { CountryGeogeapghy } from "./CountryGeograpghy";
 import { CountryLife } from "./CountryLife";
 
-export function Country({ setLoader }) {
-  const [countryData, setCountryData] = useState("");
-
-  let params = useParams();
-
-  useEffect(() => {
-    async function getCountry() {
-      setLoader(true);
-      await fetch(`https://restcountries.com/v3.1/alpha/${params.countryCode}`)
-        .then((res) => {
-          return res.json();
-        })
-        .then((searchResult) => {
-          setLoader(false);
-          setCountryData({ ...searchResult[0] });
-        });
-    }
-    getCountry();
-  }, [params.countryCode, setLoader]);
-
+export function Country({ countryData, borderCountriesData }) {
   return (
     <main className="countryPage main">
-      <Link className="countryPage__backToSearch" to="/learn-countries">
+      <Link className="countryPage__backToSearch" href="/">
         ← search page
       </Link>
       {countryData && (
@@ -60,7 +41,7 @@ export function Country({ setLoader }) {
             </div>
             <CountryGeogeapghy countryData={countryData} />
             <CountryLife countryData={countryData} />
-            <BorderCountries countryData={countryData} />
+            <BorderCountries borderCountriesData={borderCountriesData} />
           </div>
         </div>
       )}
