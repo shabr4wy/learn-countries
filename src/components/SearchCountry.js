@@ -27,10 +27,7 @@ export function SearchCountry() {
     <section className="search">
       <SearchBar isLoading={isLoading} />
 
-      <SearchPreview
-        countriesData={data?.status == 404 ? false : data}
-        searchedCountry={searchedCountry}
-      />
+      <SearchPreview countriesData={data?.status == 404 ? false : data} />
     </section>
   );
 }
