@@ -99,10 +99,10 @@ ul {
     line-height: 2.4;
     display: flex;
     flex-flow: row wrap;
+    gap: 15px;
 
     li {
         border-radius: 5px;
-        margin: 0 10px 0 0;
 
         a {
             padding: 0 20px;
@@ -198,10 +198,10 @@ ul {
 .countryPage_bordersList {
     display: flex;
     flex-flow: row wrap;
+    gap: 15px;
 
     li {
         border-radius: 5px;
-        margin: 0 10px 15px 0;
 
         a {
             padding: 0 20px;
