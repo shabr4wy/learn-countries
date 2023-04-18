@@ -4,6 +4,7 @@ import { useContext } from "react";
 import useSWR from "swr";
 import { searchedCountryContext } from "../pages/_app";
 import SearchPreview from "./SearchPreview";
+import { Loader } from "./Loader";
 
 export function SearchCountry() {
   const { searchedCountry, setSearchedCountry } = useContext(
@@ -18,8 +19,11 @@ export function SearchCountry() {
     return data;
   };
 
-  const { data } = useSWR(searchedCountry && "searchResult", getSearchResult);
-  console.log(data);
+  const { data, isLoading } = useSWR(
+    searchedCountry && "searchResult",
+    getSearchResult
+  );
+
   const handleChange = (value) => {
     setSearchedCountry(value);
   };
@@ -45,10 +49,14 @@ export function SearchCountry() {
         placeholder="search for any country..."
       ></input>
 
-      <SearchPreview
-        countriesData={data?.status == 404 ? false : data}
-        searchedCountry={searchedCountry}
-      />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <SearchPreview
+          countriesData={data?.status == 404 ? false : data}
+          searchedCountry={searchedCountry}
+        />
+      )}
     </section>
   );
 }
