@@ -4,7 +4,6 @@
 :root {
     --appBackground: hsl(207, 26%, 17%);
     --elementBackground: hsl(209, 23%, 22%);
-    --searchIconFill: white;
     --iconFill: white;
     --textColor: white;
 }
@@ -337,7 +336,7 @@ header,
 }
 
 .search__icon {
-    fill: var(--searchIconFill);
+    fill: hsl(0, 0%, 52%)
 }
 
 .countryPage__locationIcon {

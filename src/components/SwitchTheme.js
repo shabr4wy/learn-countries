@@ -18,13 +18,7 @@ export function SwitchTheme() {
     );
   };
 
-  const swithMode = (
-    appBackground,
-    elementBackground,
-    textColor,
-    iconFill,
-    searchIconFill
-  ) => {
+  const swithMode = (appBackground, elementBackground, textColor, iconFill) => {
     document.documentElement.style.setProperty(
       "--appBackground",
       appBackground
@@ -35,10 +29,6 @@ export function SwitchTheme() {
     );
     document.documentElement.style.setProperty("--textColor", textColor);
     document.documentElement.style.setProperty("--iconFill", iconFill);
-    document.documentElement.style.setProperty(
-      "--searchIconFill",
-      searchIconFill
-    );
   };
 
   useEffect(() => {
@@ -50,17 +40,10 @@ export function SwitchTheme() {
           "hsl(0, 0%, 97%)",
           "hsl(0, 0%, 100%)",
           "hsl(200, 15%, 8%)",
-          "black",
-          "hsl(0, 0%, 52%)"
+          "black"
         );
       } else if (theme === "dark") {
-        swithMode(
-          "hsl(207, 26%, 17%)",
-          "hsl(209, 23%, 22%)",
-          "white",
-          "white",
-          "white"
-        );
+        swithMode("hsl(207, 26%, 17%)", "hsl(209, 23%, 22%)", "white", "white");
       }
     }
 
