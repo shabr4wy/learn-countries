@@ -10,24 +10,35 @@ export function SearchCountry() {
   const { searchedCountry } = useContext(searchedCountryContext);
 
   const getSearchResult = async () => {
-    const res = await fetch(
+    return await fetch(
       `https://restcountries.com/v3.1/name/${searchedCountry}?fields=name,flags,capital,cca2`
-    );
-    const data = await res.json();
-    return data;
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
   };
 
   const key = searchedCountry
     ? `searchResult?search=${searchedCountry}`
     : "searchResult";
 
-  const { data, isLoading } = useSWR(searchedCountry && key, getSearchResult);
+  const { data, isLoading, error } = useSWR(
+    searchedCountry && key,
+    getSearchResult
+  );
 
   return (
     <section className="search">
       <SearchBar isLoading={isLoading} />
 
-      <SearchPreview countriesData={data?.status == 404 ? false : data} />
+      {<SearchPreview countriesData={data} error={error} />}
     </section>
   );
 }

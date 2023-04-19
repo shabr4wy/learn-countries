@@ -5,8 +5,9 @@ import { useContext } from "react";
 import { searchedCountryContext } from "../../pages/_app";
 
 /** @format */
-const SearchPreview = ({ countriesData }) => {
+const SearchPreview = ({ countriesData, error }) => {
   const { searchedCountry } = useContext(searchedCountryContext);
+
   return (
     <section className="search__searchPreview">
       {countriesData ? (
@@ -40,7 +41,7 @@ const SearchPreview = ({ countriesData }) => {
           </Link>
         </>
       ) : (
-        searchedCountry && <p>No country is matched, please try again.</p>
+        error && <p>No country is matched, please try again.</p>
       )}
     </section>
   );
