@@ -48,7 +48,11 @@ const SearchPreview = ({ countriesData, error }) => {
           </Link>
         </>
       ) : (
-        error && <p>No country is matched, please try again.</p>
+        error && (
+          <p className="search__error">
+            No country is matched, please try again.
+          </p>
+        )
       )}
     </section>
   );
