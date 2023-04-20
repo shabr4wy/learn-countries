@@ -115,6 +115,10 @@ ul {
         gap: 5px;
     }
 
+    &__error {
+        text-align: center;
+    }
+
     &__previewItem {
         display: grid;
         grid-template-columns: 65px 6fr;
