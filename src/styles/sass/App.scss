@@ -109,7 +109,7 @@ ul {
         border-radius: 0 0 5px 5px;
     }
 
-    &__searchPreview  ul{
+    &__searchPreview > ul{
         display: flex;
         flex-direction: column;
         gap: 5px;
