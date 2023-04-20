@@ -106,6 +106,15 @@ ul {
         flex-direction: column;
         gap: 5px;
     }
+
+    &__previewItem {
+        display: grid;
+        grid-template-columns: 65px 6fr;
+        align-items: center;
+        column-gap: 10px;
+    }
+
+
 }
 
 .regionMenu__list {
