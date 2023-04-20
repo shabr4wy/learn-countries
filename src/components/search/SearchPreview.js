@@ -23,10 +23,12 @@ const SearchPreview = ({ countriesData, error }) => {
                     loading="lazy"
                   ></img>
 
-                  <p>
-                    <strong>{countryData?.name?.common}</strong>
-                  </p>
-                  <p>{countryData?.capital}</p>
+                  <ul>
+                    <li>
+                      <strong>{countryData?.name?.common}</strong>
+                    </li>
+                    <li>{countryData?.capital}</li>
+                  </ul>
                 </Link>
               </li>
             ))}
