@@ -15,19 +15,24 @@ const SearchPreview = ({ countriesData, error }) => {
           <ul>
             {countriesData?.map((countryData) => (
               <li key={countryData?.name?.common}>
-                <Link href={`/country/${countryData.cca2}`}>
+                <Link
+                  className="search__previewItem"
+                  href={`/country/${countryData.cca2}`}
+                >
                   <img
-                    className="search__flag"
+                    className="previewItem__flag"
                     src={countryData?.flags?.svg}
                     alt={countryData?.name?.common + " flag"}
                     loading="lazy"
                   ></img>
 
                   <ul>
-                    <li>
+                    <li className="previewItem__name">
                       <strong>{countryData?.name?.common}</strong>
                     </li>
-                    <li>{countryData?.capital}</li>
+                    <li className="previewItem__capital">
+                      {countryData?.capital}
+                    </li>
                   </ul>
                 </Link>
               </li>
