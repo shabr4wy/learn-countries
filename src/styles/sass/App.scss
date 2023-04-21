@@ -104,8 +104,6 @@ ul {
     &__searchPreview {
         position: absolute;
         width: 100%;
-        max-height: 380px;
-        overflow: scroll;
         border-radius: 0 0 5px 5px;
     }
 
@@ -114,6 +112,8 @@ ul {
         flex-direction: column;
         gap: 5px;
         margin: 0 10px;
+        max-height: 300px;
+        overflow: scroll;
     }
 
     &__viewAll {
