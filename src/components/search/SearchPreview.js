@@ -39,6 +39,7 @@ const SearchPreview = ({ countriesData, error }) => {
             ))}
           </ul>
           <Link
+            className="search__viewAll"
             href={{
               pathname: `/SearchResult`,
               query: { search: searchedCountry },
