@@ -77,17 +77,17 @@ ul {
     position: relative;
     
     &__icon {
-        height: 24px;
+        height: 20px;
         position: absolute;
-        top: 11.5px;
-        left: 18px;
+        top: 12.5px;
+        left: 10px;
     }
 
     &__input {
         box-sizing: border-box;
         width: 100%;
         height: 45px;
-        padding: 0 10px 0 60px;
+        padding: 0 10px 0 40px;
         border: none;
         border-radius: 5px;
         font-size: inherit;
