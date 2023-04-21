@@ -346,7 +346,12 @@ ul {
         border-radius: 5px 5px 0 0;
         outline: none;
     }
+
+    &__viewAll:hover, &__viewAll:focus  {
+        text-decoration: underline;
+    }
 } 
+
 
 
 
