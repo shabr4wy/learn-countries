@@ -341,6 +341,15 @@ ul {
     cursor: pointer;
 }
 
+.search {
+    &__input:focus {
+        border-radius: 5px 5px 0 0;
+        outline: none;
+    }
+} 
+
+
+
 /* ---theme--- */
 /* dark mode */ 
 body {
@@ -382,14 +391,4 @@ header,
         stroke: var(--iconFill);
     }
 }
-
-
-/*  ---state---  */
-
-/* search page */
-.search {
-    &__input:focus {
-        border-radius: 5px 5px 0 0;
-        outline: none;
-    }
-}   
+  
