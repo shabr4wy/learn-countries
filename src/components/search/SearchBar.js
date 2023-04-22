@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { searchedCountryContext } from "../../pages/_app";
 import { Loader } from "../Loader";
 import { SearchIcon } from "./SearchIcon";
+import { SearchLoader } from "./SearchLoader";
 
 export function SearchBar({ isLoading }) {
   const { searchedCountry, setSearchedCountry } = useContext(
@@ -14,7 +15,7 @@ export function SearchBar({ isLoading }) {
 
   return (
     <section className="search__searchBar">
-      <SearchIcon />
+      {isLoading ? <SearchLoader /> : <SearchIcon />}
 
       <input
         className="search__input"
@@ -25,8 +26,6 @@ export function SearchBar({ isLoading }) {
         onChange={(e) => handleChange(e.target.value)}
         placeholder="search for any country..."
       ></input>
-
-      {isLoading && <Loader />}
     </section>
   );
 }
