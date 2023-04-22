@@ -101,6 +101,13 @@ ul {
         }
     }
 
+    .searchLoader__icon {
+        position: absolute;
+        height: 22px;
+        top: 11.5px;
+        left: 10px;
+    }
+
     &__searchPreview {
         position: absolute;
         width: 100%;
