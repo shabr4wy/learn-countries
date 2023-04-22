@@ -24,7 +24,7 @@ const SearchResult = () => {
     <>
       <Header />
       <main className="searchResultPage main">
-        <CountriesList countries={data} />
+        <CountriesList countries={data} isLoading={isLoading} />
       </main>
     </>
   );

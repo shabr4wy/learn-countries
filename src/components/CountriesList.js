@@ -1,8 +1,9 @@
 /** @format */
 
 import Link from "next/link";
+import { Loader } from "./Loader";
 
-export function CountriesList({ countries }) {
+export function CountriesList({ countries, isLoading }) {
   return (
     // countries list
     <section>
@@ -41,6 +42,9 @@ export function CountriesList({ countries }) {
             </li>
           ))}
         </ul>
+      ) : // loader renders when fetching search bar result as it uses client side rendering.
+      isLoading ? (
+        <Loader />
       ) : (
         <p className="noSearchResult">
           No country is matched, please try again.
