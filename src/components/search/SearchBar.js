@@ -22,6 +22,7 @@ export function SearchBar({ isLoading }) {
         value={searchedCountry}
         type="search"
         name="q"
+        autoComplete="off"
         pattern="^[a-zA-Z]+$"
         onChange={(e) => handleChange(e.target.value)}
         placeholder="search for any country..."
