@@ -394,6 +394,12 @@ header,
     fill: hsl(0, 0%, 52%)
 }
 
+.searchLoader__icon {
+    circle {
+        stroke: hsl(0, 0%, 52%);
+    }
+}
+
 .countryPage__locationIcon {
     fill: var(--iconFill);
 }
