@@ -19,7 +19,10 @@ const SearchResult = () => {
     return data;
   };
 
-  const { data } = useSWR(searchedCountry && "searchResult", getSearchResult);
+  const { data, isLoading } = useSWR(
+    searchedCountry && `searchResult/${searchedCountry}`,
+    getSearchResult
+  );
   return (
     <>
       <Header />
