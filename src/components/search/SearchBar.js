@@ -6,12 +6,15 @@ import { Loader } from "../Loader";
 import { SearchIcon } from "./SearchIcon";
 import { SearchLoader } from "./SearchLoader";
 
-export function SearchBar({ isLoading }) {
+export function SearchBar({ isLoading, mutate }) {
   const { searchedCountry, setSearchedCountry } = useContext(
     searchedCountryContext
   );
 
-  const handleChange = (value) => setSearchedCountry(value);
+  const handleChange = (value) => {
+    setSearchedCountry(value);
+    mutate();
+  };
 
   return (
     <section className="search__searchBar">

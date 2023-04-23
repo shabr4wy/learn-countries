@@ -25,18 +25,14 @@ export function SearchCountry() {
       });
   };
 
-  const key = searchedCountry
-    ? `searchResult?search=${searchedCountry}`
-    : "searchResult";
-
-  const { data, isLoading, error } = useSWR(
-    searchedCountry && key,
+  const { data, isLoading, error, mutate } = useSWR(
+    searchedCountry && "searchResult",
     getSearchResult
   );
 
   return (
     <section className="search">
-      <SearchBar isLoading={isLoading} />
+      <SearchBar isLoading={isLoading} mutate={mutate} />
 
       {<SearchPreview countriesData={data} error={error} />}
     </section>
