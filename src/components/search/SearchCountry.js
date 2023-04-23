@@ -30,6 +30,9 @@ export function SearchCountry() {
     getSearchResult
   );
 
+  // if input is deleted, remove search result of previuos fetch calls.
+  !searchedCountry && mutate([]);
+
   return (
     <section className="search">
       <SearchBar isLoading={isLoading} mutate={mutate} />
