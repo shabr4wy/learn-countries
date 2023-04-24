@@ -354,6 +354,14 @@ ul {
         outline: none;
     }
 
+    &__searchPreview {
+        display: none;
+    }
+
+    &:focus-within &__searchPreview {
+        display: block;
+    }
+
     &__viewAll:hover, &__viewAll:focus  {
         text-decoration: underline;
     }
