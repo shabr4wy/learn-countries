@@ -37,7 +37,7 @@ export function SearchCountry() {
     <section className="search">
       <SearchBar isLoading={isLoading} mutate={mutate} />
 
-      {<SearchPreview countriesData={data} error={error} />}
+      {data && <SearchPreview countriesData={data} error={error} />}
     </section>
   );
 }
