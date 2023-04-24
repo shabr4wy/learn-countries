@@ -354,6 +354,10 @@ ul {
         outline: none;
     }
 
+    &:not(:has(.search__searchPreview)) &__input{
+        border-radius: 5px;
+    }
+
     &__searchPreview {
         display: none;
     }
