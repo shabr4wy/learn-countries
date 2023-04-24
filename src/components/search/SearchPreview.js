@@ -7,10 +7,10 @@ import { searchedCountryContext } from "../../pages/_app";
 /** @format */
 const SearchPreview = ({ countriesData, error }) => {
   const { searchedCountry } = useContext(searchedCountryContext);
-
+  console.log(countriesData, error);
   return (
     <section className="search__searchPreview">
-      {countriesData ? (
+      {countriesData?.length > 0 ? (
         <>
           <ul>
             {countriesData?.map((countryData) => (
