@@ -1,6 +1,6 @@
 /** @format */
 import { createContext, useState } from "react";
-import "../styles/sass/App.css";
+import "../styles/App.css";
 import { Analytics } from "@vercel/analytics/react";
 
 export const searchedCountryContext = createContext("");
