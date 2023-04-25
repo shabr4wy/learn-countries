@@ -88,7 +88,7 @@ ul {
   -webkit-appearance: none;
   height: 20px;
   width: 20px;
-  background-image: url(/../../public/clearSearch.svg);
+  background-image: url(../../public/clearSearch.svg);
   background-repeat: no-repeat;
 }
 .search .searchLoader__icon {
