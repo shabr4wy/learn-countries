@@ -1,0 +1,355 @@
+/* ---base rules--- */
+/* variables */
+:root {
+  --appBackground: hsl(207, 26%, 17%);
+  --elementBackground: hsl(209, 23%, 22%);
+  --iconFill: white;
+  --textColor: white;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+}
+
+button,
+input,
+a {
+  font-family: "Nunito Sans", sans-serif;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+div svg {
+  max-inline-size: 100%;
+}
+div img {
+  max-inline-size: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* ---layout--- */
+.header,
+.main {
+  padding: 0 5vw;
+}
+
+/* ---modules---- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__theme__switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 110px;
+}
+.header__theme__icon {
+  max-width: 20px;
+}
+
+.countriesSearchPage {
+  margin: 20px 0;
+}
+.countriesSearchPage section:not(.search__searchBar, .search__searchPreview) {
+  margin: 20px 0;
+}
+
+.search {
+  position: relative;
+}
+.search__icon {
+  height: 20px;
+  position: absolute;
+  top: 12.5px;
+  left: 10px;
+}
+.search__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  padding: 0 10px 0 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: inherit;
+}
+.search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-image: url(/../../public/clearSearch.svg);
+  background-repeat: no-repeat;
+}
+.search .searchLoader__icon {
+  position: absolute;
+  height: 22px;
+  top: 11.5px;
+  left: 10px;
+}
+.search__searchPreview {
+  position: absolute;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+}
+.search__searchPreview > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow: scroll;
+}
+.search__viewAll {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.search__error {
+  text-align: center;
+  margin: 10px 0;
+}
+.search__previewItem {
+  display: grid;
+  grid-template-columns: 50px 6fr;
+  align-items: center;
+  column-gap: 10px;
+  padding: 0 10px;
+}
+
+.regionMenu__list {
+  line-height: 2.4;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+.regionMenu__list li {
+  border-radius: 5px;
+}
+.regionMenu__list li a {
+  padding: 0 20px;
+}
+
+.noSearchResult {
+  text-align: center;
+}
+
+.countryDataLabel {
+  font-weight: 800;
+  font-size: 1.05em;
+}
+
+.countriesList {
+  display: grid;
+  max-width: 1380px;
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 60px;
+}
+.countriesList__countryGeogrpahy {
+  padding: 20px;
+  line-height: 1.8;
+}
+.countriesList__countryGeogrpahy li:first-child {
+  padding-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.countryItem {
+  border-radius: 5px;
+}
+.countryItem img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+
+.searchResultPage {
+  margin: 40px 0;
+}
+
+.countryPage__backToSearch {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 30px 0;
+  border-radius: 5px;
+  width: initial;
+}
+
+.countryPage {
+  line-height: 2.4;
+}
+.countryPage ul:not(.countryPage__currencies) {
+  margin-bottom: 40px;
+}
+.countryPage__name {
+  font-weight: 800;
+  font-size: 2em;
+  margin-right: 10px;
+}
+.countryPage__nameAndMap {
+  display: flex;
+  align-items: center;
+}
+.countryPage__nameAndMap .countryPage__locationLink {
+  flex: 0 0 18px;
+  height: auto;
+}
+.countryPage__bordersLabel {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 1.05em;
+}
+.countryPage__noBorders {
+  font-size: initial;
+  font-weight: initial;
+}
+
+.countryPage_bordersList {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+.countryPage_bordersList li {
+  border-radius: 5px;
+}
+.countryPage_bordersList li a {
+  padding: 0 20px;
+}
+
+.loaderContainer {
+  position: fixed;
+  top: 180px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.loaderContainer .loader__icon {
+  max-width: 110px;
+}
+
+/* desktop */
+@media (min-width: 1440px) {
+  .header,
+  .main {
+    padding: 0 8vw;
+  }
+  /* search page */
+  .countriesSearchPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .countriesSearchPage .search {
+    justify-self: start;
+    width: 500px;
+  }
+  .countriesSearchPage .regionMenu {
+    justify-self: end;
+    align-self: center;
+  }
+  .countriesSearchPage .regionMenu__list {
+    margin: 0;
+  }
+  .countriesSearchPage section:nth-child(3) {
+    grid-column: 1/3;
+  }
+  .countriesSearchPage .countriesList {
+    max-width: none;
+  }
+  /* country page */
+  .countryPage__data {
+    display: flex;
+    margin: 50px 0;
+  }
+  .countryPage__flag {
+    align-self: center;
+    flex: 1;
+  }
+  .countryPage__details {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 100px;
+    min-width: 600px;
+  }
+  .countryPage ul {
+    margin: 0;
+  }
+  .countryPage__nameAndMap, .countryPage__borders {
+    grid-column: 1/3;
+    margin: 0;
+  }
+  .loaderContainer .loader__icon {
+    max-width: 150px;
+  }
+}
+/* ---state--- */
+.header__theme__switch {
+  cursor: pointer;
+}
+
+.search__input:focus {
+  border-radius: 5px 5px 0 0;
+  outline: none;
+}
+.search:not(:has(.search__searchPreview)) .search__input {
+  border-radius: 5px;
+}
+.search__searchPreview {
+  display: none;
+}
+.search:focus-within .search__searchPreview {
+  display: block;
+}
+.search__viewAll:hover, .search__viewAll:focus {
+  text-decoration: underline;
+}
+
+/* ---theme--- */
+/* dark mode */
+body {
+  background-color: var(--appBackground);
+  color: var(--textColor);
+}
+
+input,
+button,
+header,
+.countryItem,
+.countryPage__backToSearch,
+.regionMenu__list li,
+.countryPage_bordersList li,
+.search__searchPreview {
+  background-color: var(--elementBackground);
+}
+
+.header__theme__switch {
+  border: none;
+}
+.header__theme__icon {
+  fill: var(--iconFill);
+}
+
+.search__icon {
+  fill: hsl(0, 0%, 52%);
+}
+
+.searchLoader__icon circle {
+  stroke: hsl(0, 0%, 52%);
+}
+
+.countryPage__locationIcon {
+  fill: var(--iconFill);
+}
+
+.loader__icon circle {
+  stroke: var(--iconFill);
+}/*# sourceMappingURL=App.css.map */
