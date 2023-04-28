@@ -356,4 +356,30 @@ ul {
 
 .dark .loader__icon circle {
   stroke: var(--iconFill-dark);
-}/*# sourceMappingURL=App.css.map */
+}
+
+/* light mode */ 
+body {
+  background-color: var(--appBackground-light);
+  color: var(--textColor-light);
+}
+
+input,
+button,
+header,
+.countryItem,
+.countryPage__backToSearch,
+.regionMenu__list li,
+.countryPage_bordersList li,
+.search__searchPreview {
+  background-color: var(--elementBackground-light);
+}
+
+.header__theme__icon,
+.countryPage__locationIcon {
+  fill: var(--iconFill-light);
+}
+
+.loader__icon circle {
+  stroke: var(--iconFill-light);
+}
