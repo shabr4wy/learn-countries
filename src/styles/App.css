@@ -314,6 +314,17 @@ ul {
 }
 
 /* ---theme--- */
+/* general color */
+.search__icon {
+  fill: hsl(0, 0%, 52%);
+}
+.searchLoader__icon circle {
+  stroke: hsl(0, 0%, 52%);
+}
+.header__theme__switch {
+  border: none;
+}
+
 /* dark mode */
 .dark body {
   background-color: var(--appBackground);
@@ -331,19 +342,8 @@ ul {
   background-color: var(--elementBackground);
 }
 
-.header__theme__switch {
-  border: none;
-}
 .dark .header__theme__icon {
   fill: var(--iconFill);
-}
-
-.search__icon {
-  fill: hsl(0, 0%, 52%);
-}
-
-.searchLoader__icon circle {
-  stroke: hsl(0, 0%, 52%);
 }
 
 .dark .countryPage__locationIcon {
