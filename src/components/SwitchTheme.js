@@ -1,56 +1,36 @@
 /** @format */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function SwitchTheme() {
   let preferredTheme = undefined;
+
   if (typeof window != "undefined") {
     preferredTheme = window?.localStorage.getItem("theme");
   }
 
   const [theme, setTheme] = useState(preferredTheme);
 
+  function checkDarkTheme() {
+    if (typeof document != "undefined") {
+      theme == "dark"
+        ? document.documentElement.classList.add("dark")
+        : document.documentElement.classList.remove("dark");
+    }
+  }
+
+  checkDarkTheme();
+
   const handleClick = () => {
     setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
+
     window.localStorage.setItem(
       "theme",
       preferredTheme === "light" ? "dark" : "light"
     );
+
+    checkDarkTheme();
   };
-
-  const swithMode = (appBackground, elementBackground, textColor, iconFill) => {
-    document.documentElement.style.setProperty(
-      "--appBackground",
-      appBackground
-    );
-    document.documentElement.style.setProperty(
-      "--elementBackground",
-      elementBackground
-    );
-    document.documentElement.style.setProperty("--textColor", textColor);
-    document.documentElement.style.setProperty("--iconFill", iconFill);
-  };
-
-  useEffect(() => {
-    let mounted = true;
-
-    if (mounted) {
-      if (theme === "light") {
-        swithMode(
-          "hsl(0, 0%, 97%)",
-          "hsl(0, 0%, 100%)",
-          "hsl(200, 15%, 8%)",
-          "black"
-        );
-      } else if (theme === "dark") {
-        swithMode("hsl(207, 26%, 17%)", "hsl(209, 23%, 22%)", "white", "white");
-      }
-    }
-
-    return () => {
-      mounted = false;
-    };
-  }, [theme]);
 
   return (
     <div className="header__theme">
