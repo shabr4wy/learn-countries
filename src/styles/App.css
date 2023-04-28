@@ -315,26 +315,26 @@ ul {
 
 /* ---theme--- */
 /* dark mode */
-body {
+.dark body {
   background-color: var(--appBackground);
   color: var(--textColor);
 }
 
-input,
-button,
-header,
-.countryItem,
-.countryPage__backToSearch,
-.regionMenu__list li,
-.countryPage_bordersList li,
-.search__searchPreview {
+.dark input,
+.dark button,
+.dark header,
+.dark .countryItem,
+.dark .countryPage__backToSearch,
+.dark .regionMenu__list li,
+.dark .countryPage_bordersList li,
+.dark .search__searchPreview {
   background-color: var(--elementBackground);
 }
 
 .header__theme__switch {
   border: none;
 }
-.header__theme__icon {
+.dark .header__theme__icon {
   fill: var(--iconFill);
 }
 
@@ -346,10 +346,10 @@ header,
   stroke: hsl(0, 0%, 52%);
 }
 
-.countryPage__locationIcon {
+.dark .countryPage__locationIcon {
   fill: var(--iconFill);
 }
 
-.loader__icon circle {
+.dark .loader__icon circle {
   stroke: var(--iconFill);
 }/*# sourceMappingURL=App.css.map */
