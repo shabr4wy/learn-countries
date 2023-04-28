@@ -342,10 +342,7 @@ ul {
   background-color: var(--elementBackground-dark);
 }
 
-.dark .header__theme__icon {
-  fill: var(--iconFill-dark);
-}
-
+.dark .header__theme__icon,
 .dark .countryPage__locationIcon {
   fill: var(--iconFill-dark);
 }
