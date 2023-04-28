@@ -1,10 +1,10 @@
 /* ---base rules--- */
 /* variables */
 :root {
-  --appBackground: hsl(207, 26%, 17%);
-  --elementBackground: hsl(209, 23%, 22%);
-  --iconFill: white;
-  --textColor: white;
+  --appBackground-dark: hsl(207, 26%, 17%);
+  --elementBackground-dark: hsl(209, 23%, 22%);
+  --iconFill-dark: white;
+  --textColor-dark: white;
 }
 
 body {
@@ -327,8 +327,8 @@ ul {
 
 /* dark mode */
 .dark body {
-  background-color: var(--appBackground);
-  color: var(--textColor);
+  background-color: var(--appBackground-dark);
+  color: var(--textColor-dark);
 }
 
 .dark input,
@@ -339,17 +339,17 @@ ul {
 .dark .regionMenu__list li,
 .dark .countryPage_bordersList li,
 .dark .search__searchPreview {
-  background-color: var(--elementBackground);
+  background-color: var(--elementBackground-dark);
 }
 
 .dark .header__theme__icon {
-  fill: var(--iconFill);
+  fill: var(--iconFill-dark);
 }
 
 .dark .countryPage__locationIcon {
-  fill: var(--iconFill);
+  fill: var(--iconFill-dark);
 }
 
 .dark .loader__icon circle {
-  stroke: var(--iconFill);
+  stroke: var(--iconFill-dark);
 }/*# sourceMappingURL=App.css.map */
