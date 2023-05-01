@@ -1,11 +1,8 @@
 /** @format */
 
 export function SwitchTheme() {
-  let preferredTheme = undefined;
-
-  if (typeof window != "undefined") {
-    preferredTheme = window?.localStorage.getItem("theme");
-  }
+  let preferredTheme =
+    typeof window != "undefined" && window?.localStorage.getItem("theme");
 
   function checkDarkTheme() {
     if (typeof document != "undefined") {
