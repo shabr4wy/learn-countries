@@ -1,8 +1,16 @@
 /** @format */
 
 export function SwitchTheme() {
-  let preferredTheme =
+  const systemTheme =
+    typeof window != "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+
+  const localStorageTheme =
     typeof window != "undefined" && window?.localStorage.getItem("theme");
+
+  let preferredTheme = localStorageTheme ? localStorageTheme : systemTheme;
 
   function checkDarkTheme() {
     if (typeof document != "undefined") {
