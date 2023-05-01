@@ -320,6 +320,22 @@ ul {
   text-decoration: underline;
 }
 
+/* show light title when theme is dark and hide the dark title. title is the switch theme btn text. */
+.dark .header__theme__dark{
+  display: none;
+}
+.dark .header__theme__light{
+  display: block;
+}
+/* show dark title when theme is light and hide the light title. title is the switch theme btn text.*/
+.header__theme__dark {
+  display: block;
+}
+.header__theme__light{
+  display: none;
+}
+
+
 /* ---theme--- */
 /* general color */
 .search__icon {
