@@ -1,35 +1,9 @@
 /** @format */
 
+import { checkDarkTheme, handleClick } from "../modules/theme";
+
 export function SwitchTheme() {
-  const systemTheme =
-    typeof window != "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-
-  const localStorageTheme =
-    typeof window != "undefined" && window?.localStorage.getItem("theme");
-
-  let preferredTheme = localStorageTheme ? localStorageTheme : systemTheme;
-
-  function checkDarkTheme() {
-    if (typeof document != "undefined") {
-      preferredTheme == "dark"
-        ? document.documentElement.classList.add("dark")
-        : document.documentElement.classList.remove("dark");
-    }
-  }
-
   checkDarkTheme();
-
-  const handleClick = () => {
-    preferredTheme = preferredTheme === "light" ? "dark" : "light";
-
-    window.localStorage.setItem("theme", preferredTheme);
-
-    checkDarkTheme();
-  };
-
   return (
     <div className="header__theme">
       <button className="header__theme__switch" onClick={() => handleClick()}>
