@@ -1,7 +1,5 @@
 /** @format */
 
-import { useState } from "react";
-
 export function SwitchTheme() {
   let preferredTheme = undefined;
 
@@ -9,11 +7,9 @@ export function SwitchTheme() {
     preferredTheme = window?.localStorage.getItem("theme");
   }
 
-  const [theme, setTheme] = useState(preferredTheme);
-
   function checkDarkTheme() {
     if (typeof document != "undefined") {
-      theme == "dark"
+      preferredTheme == "dark"
         ? document.documentElement.classList.add("dark")
         : document.documentElement.classList.remove("dark");
     }
@@ -22,12 +18,9 @@ export function SwitchTheme() {
   checkDarkTheme();
 
   const handleClick = () => {
-    setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
+    preferredTheme = preferredTheme === "light" ? "dark" : "light";
 
-    window.localStorage.setItem(
-      "theme",
-      preferredTheme === "light" ? "dark" : "light"
-    );
+    window.localStorage.setItem("theme", preferredTheme);
 
     checkDarkTheme();
   };
