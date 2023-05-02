@@ -9,7 +9,7 @@ const SearchPreview = ({ countriesData, error }) => {
   const { searchedCountry } = useContext(searchedCountryContext);
   console.log(countriesData, error);
   return (
-    <section className="search__searchPreview">
+    <section className="search__preview">
       {countriesData?.length > 0 ? (
         <>
           <ul>

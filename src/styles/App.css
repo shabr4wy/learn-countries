@@ -69,7 +69,7 @@ ul {
 .countriesSearchPage {
   margin: 20px 0;
 }
-.countriesSearchPage section:not(.search__searchBar, .search__searchPreview) {
+.countriesSearchPage section:not(.search__bar, .search__preview) {
   margin: 20px 0;
 }
 
@@ -104,12 +104,12 @@ ul {
   top: 11.5px;
   left: 10px;
 }
-.search__searchPreview {
+.search__preview {
   position: absolute;
   width: 100%;
   border-radius: 0 0 5px 5px;
 }
-.search__searchPreview > ul {
+.search__preview > ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -307,13 +307,13 @@ ul {
   border-radius: 5px 5px 0 0;
   outline: none;
 }
-.search:not(:has(.search__searchPreview)) .search__input {
+.search:not(:has(.search__preview)) .search__input {
   border-radius: 5px;
 }
-.search__searchPreview {
+.search__preview {
   display: none;
 }
-.search:focus-within .search__searchPreview {
+.search:focus-within .search__preview {
   display: block;
 }
 .search__viewAll:hover, .search__viewAll:focus {
@@ -361,7 +361,7 @@ ul {
 .dark .countryPage__backToSearch,
 .dark .regionMenu__list li,
 .dark .countryPage_bordersList li,
-.dark .search__searchPreview {
+.dark .search__preview {
   background-color: var(--elementBackground-dark);
 }
 
@@ -387,7 +387,7 @@ header,
 .countryPage__backToSearch,
 .regionMenu__list li,
 .countryPage_bordersList li,
-.search__searchPreview {
+.search__preview {
   background-color: var(--elementBackground-light);
 }
 

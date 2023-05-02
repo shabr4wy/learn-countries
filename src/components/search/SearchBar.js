@@ -17,7 +17,7 @@ export function SearchBar({ isLoading, mutate }) {
   };
 
   return (
-    <section className="search__searchBar">
+    <section className="search__bar">
       {isLoading ? <SearchLoader /> : <SearchIcon />}
 
       <input
