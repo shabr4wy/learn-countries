@@ -3,11 +3,18 @@ import { createContext, useState } from "react";
 import "../styles/App.css";
 import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { Loader } from "../components/Loader";
 
 export const searchedCountryContext = createContext("");
 
 export default function App({ Component, pageProps }) {
   const [searchedCountry, setSearchedCountry] = useState("");
+
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  router.events?.on("routeChangeStart", () => setIsLoading(true));
+  router.events?.on("routeChangeComplete", () => setIsLoading(false));
 
   return (
     <searchedCountryContext.Provider
@@ -23,6 +30,7 @@ export default function App({ Component, pageProps }) {
         <title>Learn Countries</title>
       </Head>
       <Component {...pageProps} />
+      {isLoading && <Loader />}
 
       <Analytics />
     </searchedCountryContext.Provider>
