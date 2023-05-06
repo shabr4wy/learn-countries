@@ -359,6 +359,7 @@ ul {
   color: var(--textColor-dark);
 }
 
+.dark .loaderContainer,
 .dark input,
 .dark button,
 .dark header,
@@ -385,6 +386,7 @@ body {
   color: var(--textColor-light);
 }
 
+.loaderContainer,
 input,
 button,
 header,
