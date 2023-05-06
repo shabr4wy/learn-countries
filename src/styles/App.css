@@ -1,19 +1,4 @@
 /* ---base rules--- */
-/* variables */
-:root {
-  /* dark mode */
-  --appBackground-dark: hsl(207, 26%, 17%);
-  --elementBackground-dark: hsl(209, 23%, 22%);
-  --iconFill-dark: white;
-  --textColor-dark: white;
-
-  /* light mode */
-  --appBackground-light: hsl(0, 0%, 97%);
-  --elementBackground-light: hsl(0, 0%, 100%);
-  --iconFill-light: black;
-  --textColor-light: black;
-}
-
 body {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
@@ -337,7 +322,23 @@ ul {
 
 
 /* ---theme--- */
+/* variables */
+:root {
+  /* dark mode */
+  --appBackground-dark: hsl(207, 26%, 17%);
+  --elementBackground-dark: hsl(209, 23%, 22%);
+  --iconFill-dark: white;
+  --textColor-dark: white;
+
+  /* light mode */
+  --appBackground-light: hsl(0, 0%, 97%);
+  --elementBackground-light: hsl(0, 0%, 100%);
+  --iconFill-light: black;
+  --textColor-light: black;
+}
+
 /* general color */
+
 .search__icon {
   fill: hsl(0, 0%, 52%);
 }
