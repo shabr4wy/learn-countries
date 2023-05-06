@@ -83,7 +83,7 @@ ul {
   background-image: url(../../public/clearSearch.svg);
   background-repeat: no-repeat;
 }
-.search .searchLoader__icon {
+.searchLoader__icon {
   position: absolute;
   height: 22px;
   top: 11.5px;
@@ -191,7 +191,7 @@ ul {
   display: flex;
   align-items: center;
 }
-.countryPage__nameAndMap .countryPage__locationLink {
+.countryPage__locationLink {
   flex: 0 0 18px;
   height: auto;
 }
@@ -224,7 +224,7 @@ ul {
   display: flex;
   justify-content: center;
 }
-.loaderContainer .loader__icon {
+.loader__icon {
   max-width: 110px;
 }
 
@@ -239,7 +239,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .countriesSearchPage .search {
+  .search {
     justify-self: start;
     width: 500px;
   }
@@ -247,13 +247,13 @@ ul {
     justify-self: end;
     align-self: center;
   }
-  .countriesSearchPage .regionMenu__list {
+  .regionMenu__list {
     margin: 0;
   }
   .countriesSearchPage section:nth-child(3) {
     grid-column: 1/3;
   }
-  .countriesSearchPage .countriesList {
+  .countriesList {
     max-width: none;
   }
   /* country page */
@@ -275,11 +275,12 @@ ul {
   .countryPage ul {
     margin: 0;
   }
-  .countryPage__nameAndMap, .countryPage__borders {
+  .countryPage__nameAndMap,
+  .countryPage__borders {
     grid-column: 1/3;
     margin: 0;
   }
-  .loaderContainer .loader__icon {
+.loader__icon {
     max-width: 150px;
   }
 }
@@ -301,7 +302,8 @@ ul {
 .search:focus-within .search__preview {
   display: block;
 }
-.search__viewAll:hover, .search__viewAll:focus {
+.search__viewAll:hover,
+.search__viewAll:focus {
   text-decoration: underline;
 }
 
