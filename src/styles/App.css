@@ -219,10 +219,12 @@ ul {
 
 .loaderContainer {
   position: fixed;
-  top: 180px;
+  top: 0;
   width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .loader__icon {
   max-width: 110px;
